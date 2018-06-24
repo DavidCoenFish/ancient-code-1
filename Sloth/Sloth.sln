@@ -1,0 +1,32 @@
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual C++ Express 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sloth", "Sloth.vcproj", "{F1639E8C-E209-C0C3-B098-0433B40BCF17}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Pride", "..\Pride\Pride.vcproj", "{9477F3E7-548F-3974-595A-D2FAD40E86C3}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Hubris", "..\Hubris\Hubris.vcproj", "{2E366D00-23F2-2E32-DC6A-E4BB57CA077A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Final|Win32 = Final|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F1639E8C-E209-C0C3-B098-0433B40BCF17}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F1639E8C-E209-C0C3-B098-0433B40BCF17}.Final|Win32.ActiveCfg = Final|Win32
+		{F1639E8C-E209-C0C3-B098-0433B40BCF17}.Release|Win32.ActiveCfg = Release|Win32
+		{9477F3E7-548F-3974-595A-D2FAD40E86C3}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9477F3E7-548F-3974-595A-D2FAD40E86C3}.Final|Win32.ActiveCfg = Final|Win32
+		{9477F3E7-548F-3974-595A-D2FAD40E86C3}.Release|Win32.ActiveCfg = Release|Win32
+		{2E366D00-23F2-2E32-DC6A-E4BB57CA077A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2E366D00-23F2-2E32-DC6A-E4BB57CA077A}.Debug|Win32.Build.0 = Debug|Win32
+		{2E366D00-23F2-2E32-DC6A-E4BB57CA077A}.Final|Win32.ActiveCfg = Final|Win32
+		{2E366D00-23F2-2E32-DC6A-E4BB57CA077A}.Final|Win32.Build.0 = Final|Win32
+		{2E366D00-23F2-2E32-DC6A-E4BB57CA077A}.Release|Win32.ActiveCfg = Release|Win32
+		{2E366D00-23F2-2E32-DC6A-E4BB57CA077A}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

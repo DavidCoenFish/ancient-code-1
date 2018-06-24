@@ -1,0 +1,65 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Pride", "..\Pride\Pride.vcproj", "{9477F3E7-548F-3974-595A-D2FAD40E86C3}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lust", "Lust.vcproj", "{D7A026C5-541C-4BB7-D3A8-88CBBE2BA897}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Hubris", "..\Hubris\Hubris.vcproj", "{2E366D00-23F2-2E32-DC6A-E4BB57CA077A}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Final = Final
+		Release = Release
+		Debug = Debug
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{9477F3E7-548F-3974-595A-D2FAD40E86C3}.Final.ActiveCfg = Final|Win32
+		{9477F3E7-548F-3974-595A-D2FAD40E86C3}.Final.Build.0 = Final|Win32
+		{9477F3E7-548F-3974-595A-D2FAD40E86C3}.Release.ActiveCfg = Release|Win32
+		{9477F3E7-548F-3974-595A-D2FAD40E86C3}.Release.Build.0 = Release|Win32
+		{9477F3E7-548F-3974-595A-D2FAD40E86C3}.Debug.ActiveCfg = Debug|Win32
+		{9477F3E7-548F-3974-595A-D2FAD40E86C3}.Debug.Build.0 = Debug|Win32
+		{D7A026C5-541C-4BB7-D3A8-88CBBE2BA897}.Final.ActiveCfg = Final|Win32
+		{D7A026C5-541C-4BB7-D3A8-88CBBE2BA897}.Final.Build.0 = Final|Win32
+		{D7A026C5-541C-4BB7-D3A8-88CBBE2BA897}.Release.ActiveCfg = Release|Win32
+		{D7A026C5-541C-4BB7-D3A8-88CBBE2BA897}.Release.Build.0 = Release|Win32
+		{D7A026C5-541C-4BB7-D3A8-88CBBE2BA897}.Debug.ActiveCfg = Debug|Win32
+		{D7A026C5-541C-4BB7-D3A8-88CBBE2BA897}.Debug.Build.0 = Debug|Win32
+		{2E366D00-23F2-2E32-DC6A-E4BB57CA077A}.Final.ActiveCfg = Final|Win32
+		{2E366D00-23F2-2E32-DC6A-E4BB57CA077A}.Final.Build.0 = Final|Win32
+		{2E366D00-23F2-2E32-DC6A-E4BB57CA077A}.Release.ActiveCfg = Release|Win32
+		{2E366D00-23F2-2E32-DC6A-E4BB57CA077A}.Release.Build.0 = Release|Win32
+		{2E366D00-23F2-2E32-DC6A-E4BB57CA077A}.Debug.ActiveCfg = Debug|Win32
+		{2E366D00-23F2-2E32-DC6A-E4BB57CA077A}.Debug.Build.0 = Debug|Win32
+	EndGlobalSection
+	GlobalSection(SolutionItems) = postSolution
+		SConscript = SConscript
+		..\..\SolutionItems\code_standard.txt = ..\..\SolutionItems\code_standard.txt
+		..\..\SolutionItems\todo.txt = ..\..\SolutionItems\todo.txt
+		..\..\SolutionItems\plan.txt = ..\..\SolutionItems\plan.txt
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal	
+<!-- SCons Data:
+Y2NvcHlfcmVnCl9yZWNvbnN0cnVjdG9yCnEAKGNDcmVhdGVNc3ZzU29sdXRpb25EYXRhCkNyZWF0
+ZU1zdnNTb2x1dGlvbkRhdGFDbGFzcwpxAWNfX2J1aWx0aW5fXwpvYmplY3QKcQJOdHEDUnEEfXEF
+KFUYc291cmNlU29sdXRpb25EZXBlbmRlbmN5cQZ9cQcoVRUuLlxQcmlkZVxQcmlkZS52Y3Byb2px
+CF1xCVULTHVzdC52Y3Byb2pxCl1xC1UXLi5cSHVicmlzXEh1YnJpcy52Y3Byb2pxDF1xDXVVEXNv
+bHV0aW9uSXRlbUFycmF5cQ5dcQ8oVQpTQ29uc2NyaXB0cRBVJS4uXC4uXFNvbHV0aW9uSXRlbXNc
+Y29kZV9zdGFuZGFyZC50eHRxEVUcLi5cLi5cU29sdXRpb25JdGVtc1x0b2RvLnR4dHESVRwuLlwu
+LlxTb2x1dGlvbkl0ZW1zXHBsYW4udHh0cRNlVQlkYXRhQXJyYXlxFF1xFShoAChjQ3JlYXRlTXN2
+c1NvbHV0aW9uRGF0YQpDcmVhdGVNc3ZzU29sdXRpb25EYXRhQ2xhc3NEYXRhCnEWaAJOdHEXUnEY
+fXEZKFUHcmVsZWFzZXEaVQVGaW5hbHEbVQpjb25maWdOYW1lcRxVC0ZpbmFsfFdpbjMycR11YmgA
+KGgWaAJOdHEeUnEffXEgKFUHcmVsZWFzZXEhVQdSZWxlYXNlcSJVCmNvbmZpZ05hbWVxI1UNUmVs
+ZWFzZXxXaW4zMnEkdWJoAChoFmgCTnRxJVJxJn1xJyhVB3JlbGVhc2VxKFUFRGVidWdxKVUKY29u
+ZmlnTmFtZXEqVQtEZWJ1Z3xXaW4zMnErdWJlVRBzb2x1dGlvbkZpbGVOYW1lcSxVKEQ6XGNvZW5c
+Q29yZVRlY2hcX1RvcFxDb2RlXEx1c3RcTHVzdC5zbG5xLXViLg==
+-->

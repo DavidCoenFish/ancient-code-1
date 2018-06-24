@@ -1,0 +1,166 @@
+#file: Coretech/Code/Vanity/VTestbed/SConscript
+
+
+###########################################
+# import
+
+import os
+
+Import( "env" )
+env = env.Clone()
+
+
+###########################################
+# local varaibles
+
+translationUnitName = 'VTestbed'
+translationUnitProjectName = translationUnitName + env['MSVSPROJECTSUFFIX']
+translationUnitSolutionName = translationUnitName + env['MSVSSOLUTIONSUFFIX']
+
+#src files  
+sourceFileDict = {
+  'Private' : [
+    'VTestbedAnimation.cpp',
+    'VTestbedAnimation.h',
+    'VTestbedScene.cpp',
+    'VTestbedScene.h',
+    ],
+  '' : [
+    'VTestbed_Import.h',
+    'VTestbed.cpp',
+    'VTestbed.h',
+    'SConscript'
+    ],
+  }
+
+######################################
+#adjust our env
+
+#env.Append( CCFLAGS = '/EHsc' )
+#env.AppendUnique( TARGET_DEFINES = [ ( "_HAS_EXCEPTIONS", "1" ) ] )
+
+if env.get( 'TARGET_DEBUG', False ):
+  env[ 'PDB' ] = translationUnitName + '.pdb'
+
+env.Append( TARGET_DEFINES = [ '_CONSOLE' ] )
+
+######################################
+#build exe alias( 'build' )
+
+build = env.BuildMsvs(
+  target = translationUnitName + '.exe',
+  source = [ 
+    translationUnitSolutionName,
+    env.File( "${BUILD_DIR}/Code/Lib/Hubris.Lib" ),  
+    env.File( "${BUILD_DIR}/Code/Lib/Pride.Lib" ),  
+    env.File( "${BUILD_DIR}/Code/Lib/Vanity.Lib" ),  
+    ],
+  sourceFile = env.File( '#Code/Vanity/VTestbed/' + translationUnitSolutionName ),
+  projectName = translationUnitName,
+  )  
+env.Alias( 'build', build )
+
+
+######################################
+#run testbed exe alias( 'testbed' )
+
+if 'RunTestbed' in env['TOOLS']:
+  testbed = env.RunTestbed(
+    target = translationUnitName + '.txt',
+    source = translationUnitName + '.exe',
+    )  
+  env.Alias( 'testbed', testbed )
+
+######################################
+#build project
+
+if 'CreateMsvsProject' in env['TOOLS']:
+  project = env.CreateMsvsProject(
+    target = translationUnitProjectName,
+    source = [
+      env.File( '${CODE_DIR}/Vanity/VTestbed/Sconscript' ),
+      ],         
+    sourceProjectFiles = sourceFileDict,
+    additionalIncludeDirectories = [ 
+      "..\\..",
+      ],    
+      
+    additionalDependencies = [ 
+      "Hubris.lib", 
+      "Envy.lib",
+      "Lust.lib",
+      "Pride.lib",
+      "Vanity.lib",
+      "Greed.lib", 
+      "TinyXml.lib",
+      "opengl32.lib",      
+      ],
+    additionalLibraryDirectories = [ 
+      env.Dir( '${BUILD_DIR}/Code/Lib' ).abspath,
+      env.Dir( '${BUILD_DIR}/ThirdParty/Lib' ).abspath,
+      ],
+    projectType = 'Win32Proj',
+    buildConsole = True,
+    buildBase = os.path.join( "..", "..", "..", env.Dir( '.' ).path ),
+    )
+  Clean( project, env.File( translationUnitProjectName ).srcnode() )
+  env.Default( project )
+
+######################################
+#build solution (default)
+
+if 'CreateMsvsSolution' in env['TOOLS']:
+  solution = env.CreateMsvsSolution(
+    target = translationUnitSolutionName,
+    source = [
+      translationUnitProjectName,
+      ],
+    sourceSolutionDependency = { 
+      translationUnitProjectName : [
+        "Hubris.vcproj",
+        "Envy.vcproj",
+        "Pride.vcproj",
+        "Greed.vcproj",
+        "Lust.vcproj",
+        "Vanity.vcproj",
+        "Sloth.vcproj",
+        ],
+        
+      "..\\..\\Hubris\\Hubris.vcproj" : [
+        "TinyXml.vcproj",
+        ],
+
+      "..\\..\\Envy\\Envy.vcproj" : [
+        ],
+
+      "..\\..\\Greed\\Greed.vcproj" : [
+        ],
+
+      "..\\..\\Lust\\Lust.vcproj" : [
+        ],
+
+      "..\\..\\Pride\\Pride.vcproj" : [
+        ],
+
+      "..\\..\\Sloth\\Sloth.vcproj" : [
+        ],
+        
+      "..\\Vanity.vcproj" : [
+        ],
+
+      "..\\..\\..\\ThirdParty\\TinyXml\\TinyXml.vcproj" : [
+        ],
+        
+      },
+    solutionItemArray = [
+      "SConscript",
+      "..\\..\\..\\SolutionItems\\code_standard.txt",   
+      "..\\..\\..\\SolutionItems\\todo.txt",   
+      "..\\..\\..\\SolutionItems\\plan.txt",      
+      ],
+
+    )
+  env.Clean( solution, env.File( translationUnitSolutionName ).srcnode() )  
+  env.Default( solution )
+        
+#end file

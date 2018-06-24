@@ -1,0 +1,55 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Envy", "Envy.vcproj", "{9BFBEE9C-A8A6-89F3-A593-FA0CF118982F}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Hubris", "..\Hubris\Hubris.vcproj", "{2E366D00-23F2-2E32-DC6A-E4BB57CA077A}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Final = Final
+		Release = Release
+		Debug = Debug
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{9BFBEE9C-A8A6-89F3-A593-FA0CF118982F}.Final.ActiveCfg = Final|Win32
+		{9BFBEE9C-A8A6-89F3-A593-FA0CF118982F}.Final.Build.0 = Final|Win32
+		{9BFBEE9C-A8A6-89F3-A593-FA0CF118982F}.Release.ActiveCfg = Release|Win32
+		{9BFBEE9C-A8A6-89F3-A593-FA0CF118982F}.Release.Build.0 = Release|Win32
+		{9BFBEE9C-A8A6-89F3-A593-FA0CF118982F}.Debug.ActiveCfg = Debug|Win32
+		{9BFBEE9C-A8A6-89F3-A593-FA0CF118982F}.Debug.Build.0 = Debug|Win32
+		{2E366D00-23F2-2E32-DC6A-E4BB57CA077A}.Final.ActiveCfg = Final|Win32
+		{2E366D00-23F2-2E32-DC6A-E4BB57CA077A}.Final.Build.0 = Final|Win32
+		{2E366D00-23F2-2E32-DC6A-E4BB57CA077A}.Release.ActiveCfg = Release|Win32
+		{2E366D00-23F2-2E32-DC6A-E4BB57CA077A}.Release.Build.0 = Release|Win32
+		{2E366D00-23F2-2E32-DC6A-E4BB57CA077A}.Debug.ActiveCfg = Debug|Win32
+		{2E366D00-23F2-2E32-DC6A-E4BB57CA077A}.Debug.Build.0 = Debug|Win32
+	EndGlobalSection
+	GlobalSection(SolutionItems) = postSolution
+		SConscript = SConscript
+		..\..\SolutionItems\code_standard.txt = ..\..\SolutionItems\code_standard.txt
+		..\..\SolutionItems\todo.txt = ..\..\SolutionItems\todo.txt
+		..\..\SolutionItems\plan.txt = ..\..\SolutionItems\plan.txt
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal	
+<!-- SCons Data:
+Y2NvcHlfcmVnCl9yZWNvbnN0cnVjdG9yCnEAKGNDcmVhdGVNc3ZzU29sdXRpb25EYXRhCkNyZWF0
+ZU1zdnNTb2x1dGlvbkRhdGFDbGFzcwpxAWNfX2J1aWx0aW5fXwpvYmplY3QKcQJOdHEDUnEEfXEF
+KFUYc291cmNlU29sdXRpb25EZXBlbmRlbmN5cQZ9cQcoVQtFbnZ5LnZjcHJvanEIXXEJVRcuLlxI
+dWJyaXNcSHVicmlzLnZjcHJvanEKXXELdVURc29sdXRpb25JdGVtQXJyYXlxDF1xDShVClNDb25z
+Y3JpcHRxDlUlLi5cLi5cU29sdXRpb25JdGVtc1xjb2RlX3N0YW5kYXJkLnR4dHEPVRwuLlwuLlxT
+b2x1dGlvbkl0ZW1zXHRvZG8udHh0cRBVHC4uXC4uXFNvbHV0aW9uSXRlbXNccGxhbi50eHRxEWVV
+CWRhdGFBcnJheXESXXETKGgAKGNDcmVhdGVNc3ZzU29sdXRpb25EYXRhCkNyZWF0ZU1zdnNTb2x1
+dGlvbkRhdGFDbGFzc0RhdGEKcRRoAk50cRVScRZ9cRcoVQdyZWxlYXNlcRhVBUZpbmFscRlVCmNv
+bmZpZ05hbWVxGlULRmluYWx8V2luMzJxG3ViaAAoaBRoAk50cRxScR19cR4oVQdyZWxlYXNlcR9V
+B1JlbGVhc2VxIFUKY29uZmlnTmFtZXEhVQ1SZWxlYXNlfFdpbjMycSJ1YmgAKGgUaAJOdHEjUnEk
+fXElKFUHcmVsZWFzZXEmVQVEZWJ1Z3EnVQpjb25maWdOYW1lcShVC0RlYnVnfFdpbjMycSl1YmVV
+EHNvbHV0aW9uRmlsZU5hbWVxKlUoRDpcY29lblxDb3JlVGVjaFxfVG9wXENvZGVcRW52eVxFbnZ5
+LnNsbnErdWIu
+-->

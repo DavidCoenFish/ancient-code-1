@@ -1,0 +1,405 @@
+#file: Coretech/Code/Vanity/SConscript
+
+
+###########################################
+# import
+
+import os
+
+Import( "env" )
+env = env.Clone()
+from extras.extras_dictionary import GetArrayFromDictionary
+
+###########################################
+# invoke children sconscripts
+
+# call children SConscript files
+env.SConscript(
+  [ 
+    'VTestbed/SConscript',
+    ],
+  exports = {
+    "env" : env
+    },
+  )
+  
+
+###########################################
+# local varaibles
+
+translationUnitName = 'Vanity'
+translationUnitProjectName = translationUnitName + env['MSVSPROJECTSUFFIX']
+translationUnitSolutionName = translationUnitName + env['MSVSSOLUTIONSUFFIX']
+translationUnitTargetName = translationUnitName + '.lib'
+
+#src files  
+sourceFileDict = {  
+  'VAnimation' : {
+    'Private' : [
+      'VAnimation/VAnimationPlaying.cpp',
+      'VAnimation/VAnimationPlaying.h',
+      'VAnimation/VAnimationBlendData.cpp',
+      'VAnimation/VAnimationBlendData.h',
+      'VAnimation/VAnimationData.cpp',
+      'VAnimation/VAnimationData.h',
+      'VAnimation/VAnimationInterpolator.cpp',
+      'VAnimation/VAnimationInterpolator.h',
+      'VAnimation/VAnimationStream.cpp',
+      'VAnimation/VAnimationStream.h',
+      ],
+    '' : [
+      'VAnimation/VAnimation.cpp',
+      'VAnimation/VAnimation.h',
+      'VAnimation/VAnimationReference.cpp',
+      'VAnimation/VAnimationReference.h',
+      'VAnimation/VAnimationAsset.cpp',
+      'VAnimation/VAnimationAsset.h',
+      'VAnimation/VAnimationBlenderAsset.cpp',
+      'VAnimation/VAnimationBlenderAsset.h',
+      'VAnimation/VAnimationBlender.cpp',
+      'VAnimation/VAnimationBlender.h',
+      'VAnimation/VAnimationPlayParam.cpp',
+      'VAnimation/VAnimationPlayParam.h',
+      'VAnimation/VAnimationTrait.cpp',
+      'VAnimation/VAnimationTrait.h',
+      'VAnimation/VAnimation_Export.h',    
+      ],
+    }, 
+  'VAsset' : {
+    '' : [
+      'VAsset/VAsset.cpp',
+      'VAsset/VAsset.h',
+      'VAsset/VAsset_Export.h',
+      'VAsset/VAssetManager.cpp',
+      'VAsset/VAssetManager.h',
+      ],
+    },     
+  'VComponentCollision' : {
+    'Private' : [  
+      'VComponentCollision/VComponentCollisionAssetHull.cpp',
+      'VComponentCollision/VComponentCollisionAssetHull.h',
+      'VComponentCollision/VComponentCollisionDataBase.cpp',
+      'VComponentCollision/VComponentCollisionDataBase.h',
+      'VComponentCollision/VComponentCollisionDataBound.cpp',
+      'VComponentCollision/VComponentCollisionDataBound.h',
+      'VComponentCollision/VComponentCollisionDataHull.cpp',
+      'VComponentCollision/VComponentCollisionDataHull.h',
+      'VComponentCollision/VComponentCollisionDataSphere.cpp',
+      'VComponentCollision/VComponentCollisionDataSphere.h',
+      'VComponentCollision/VComponentCollisionHullData.cpp',
+      'VComponentCollision/VComponentCollisionHullData.h',
+      'VComponentCollision/VComponentCollisionResultBound.cpp',
+      'VComponentCollision/VComponentCollisionResultBound.h',
+      'VComponentCollision/VComponentCollisionResultHull.cpp',
+      'VComponentCollision/VComponentCollisionResultHull.h',
+      'VComponentCollision/VComponentCollisionResultSphere.cpp',
+      'VComponentCollision/VComponentCollisionResultSphere.h',
+      ],
+    '' : [
+      'VComponentCollision/VComponentCollision_Export.h',
+      'VComponentCollision/VComponentCollision.cpp',
+      'VComponentCollision/VComponentCollision.h',
+      'VComponentCollision/VComponentCollisionHull.cpp',
+      'VComponentCollision/VComponentCollisionHull.h',
+      'VComponentCollision/VComponentCollisionInterfaceObject.cpp',
+      'VComponentCollision/VComponentCollisionInterfaceObject.h',
+      'VComponentCollision/VComponentCollisionResultBase.cpp',
+      'VComponentCollision/VComponentCollisionResultBase.h',
+      'VComponentCollision/VComponentCollisionTrait.cpp',
+      'VComponentCollision/VComponentCollisionTrait.h',
+      ],
+    }, 
+  'VComponentDynamic' : {
+    'Private' : [
+      'VComponentDynamic/VComponentDynamicDataBase.cpp',
+      'VComponentDynamic/VComponentDynamicDataBase.h',
+      'VComponentDynamic/VComponentDynamicDataSimple.cpp',
+      'VComponentDynamic/VComponentDynamicDataSimple.h',
+      'VComponentDynamic/VComponentDynamicDataStatic.cpp',
+      'VComponentDynamic/VComponentDynamicDataStatic.h',
+      ],
+    '' : [
+      'VComponentDynamic/VComponentDynamic.cpp',
+      'VComponentDynamic/VComponentDynamic.h',
+      'VComponentDynamic/VComponentDynamic_Export.h',
+      'VComponentDynamic/VComponentDynamicComponentParam.cpp',
+      'VComponentDynamic/VComponentDynamicComponentParam.h',
+      'VComponentDynamic/VComponentDynamicContactData.cpp',
+      'VComponentDynamic/VComponentDynamicContactData.h',
+      'VComponentDynamic/VComponentDynamicInterfaceObject.cpp',
+      'VComponentDynamic/VComponentDynamicInterfaceObject.h',
+      'VComponentDynamic/VComponentDynamicTrait.cpp',
+      'VComponentDynamic/VComponentDynamicTrait.h',
+      ],
+    },   
+  'VComponentForce' : {
+    'Private' : [
+      'VComponentForce/VComponentForceDataBase.cpp',
+      'VComponentForce/VComponentForceDataBase.h',
+      'VComponentForce/VComponentForceDataBound.cpp',
+      'VComponentForce/VComponentForceDataBound.h',
+      'VComponentForce/VComponentForceDataSphere.cpp',
+      'VComponentForce/VComponentForceDataSphere.h',
+      'VComponentForce/VComponentForceTrait.cpp',
+      'VComponentForce/VComponentForceTrait.h',
+      ],
+    '' : [
+      'VComponentForce/VComponentForce.cpp',
+      'VComponentForce/VComponentForce.h',
+      'VComponentForce/VComponentForce_Export.h',
+      'VComponentForce/VComponentForceInterfaceObject.cpp',
+      'VComponentForce/VComponentForceInterfaceObject.h',
+      'VComponentForce/VComponentForceSampleParam.cpp',
+      'VComponentForce/VComponentForceSampleParam.h',
+      ],
+    }, 
+  'VComponentGame' : {
+    'Private' : [  
+      'VComponentGame/VComponentGameDataAsset.cpp',
+      'VComponentGame/VComponentGameDataAsset.h',
+      'VComponentGame/VComponentGameItemData.cpp',
+      'VComponentGame/VComponentGameItemData.h',
+      ],
+    '' : [
+      'VComponentGame/VComponentGame.cpp',
+      'VComponentGame/VComponentGame.h',
+      'VComponentGame/VComponentGame_Export.h',
+      'VComponentGame/VComponentGameDataBase.cpp',
+      'VComponentGame/VComponentGameDataBase.h',
+      'VComponentGame/VComponentGameInterfaceObject.cpp',
+      'VComponentGame/VComponentGameInterfaceObject.h',
+      'VComponentGame/VComponentGameTrait.cpp',
+      'VComponentGame/VComponentGameTrait.h',
+      'VComponentGame/VComponentGameVariant.cpp',
+      'VComponentGame/VComponentGameVariant.h',      
+      ],
+    }, 
+  'VComponentLightEmitter' : {
+    'Private' : [
+      'VComponentLightEmitter/VComponentLightEmitterItemData.cpp',
+      'VComponentLightEmitter/VComponentLightEmitterItemData.h',
+      ],
+    '' : [
+      'VComponentLightEmitter/VComponentLightEmitter.cpp',
+      'VComponentLightEmitter/VComponentLightEmitter.h',
+      'VComponentLightEmitter/VComponentLightEmitter_Export.h',
+      'VComponentLightEmitter/VComponentLightEmitterInterfaceObject.cpp',
+      'VComponentLightEmitter/VComponentLightEmitterInterfaceObject.h',
+      'VComponentLightEmitter/VComponentLightEmitterTrait.cpp',
+      'VComponentLightEmitter/VComponentLightEmitterTrait.h',
+      ],
+    }, 
+  'VComponentLightReceiver' : {
+    'Private' : [
+      'VComponentLightReceiver/VComponentLightReceiverItemData.cpp',
+      'VComponentLightReceiver/VComponentLightReceiverItemData.h',
+      ],
+    '' : [
+      'VComponentLightReceiver/VComponentLightReceiver.cpp',
+      'VComponentLightReceiver/VComponentLightReceiver.h',
+      'VComponentLightReceiver/VComponentLightReceiver_Export.h',
+      'VComponentLightReceiver/VComponentLightReceiverInterfaceObject.cpp',
+      'VComponentLightReceiver/VComponentLightReceiverInterfaceObject.h',
+      'VComponentLightReceiver/VComponentLightReceiverTrait.cpp',
+      'VComponentLightReceiver/VComponentLightReceiverTrait.h',
+      ],
+    }, 
+  'VComponentSoundEmitter' : {
+    '' : [
+      'VComponentSoundEmitter/VComponentSoundEmitter.cpp',
+      'VComponentSoundEmitter/VComponentSoundEmitter.h',
+      'VComponentSoundEmitter/VComponentSoundEmitter_Export.h', 
+      'VComponentSoundEmitter/VComponentSoundEmitterItemData.cpp',
+      'VComponentSoundEmitter/VComponentSoundEmitterItemData.h',
+      'VComponentSoundEmitter/VComponentSoundEmitterInterfaceObject.cpp',
+      'VComponentSoundEmitter/VComponentSoundEmitterInterfaceObject.h',
+      ],
+    }, 
+  'VComponentSoundReceiver' : {
+    '' : [
+      'VComponentSoundReceiver/VComponentSoundReceiver.cpp',
+      'VComponentSoundReceiver/VComponentSoundReceiver.h',
+      'VComponentSoundReceiver/VComponentSoundReceiver_Export.h', 
+      'VComponentSoundReceiver/VComponentSoundReceiverItemData.cpp',
+      'VComponentSoundReceiver/VComponentSoundReceiverItemData.h',
+      'VComponentSoundReceiver/VComponentSoundReceiverInterfaceObject.cpp',
+      'VComponentSoundReceiver/VComponentSoundReceiverInterfaceObject.h',
+      ],
+    },      
+  'VComponentVisual' : {
+    'Private' : [
+      'VComponentVisual/VComponentVisualAssetHierarchy.cpp',
+      'VComponentVisual/VComponentVisualAssetHierarchy.h',
+      'VComponentVisual/VComponentVisualAssetSimple.cpp',
+      'VComponentVisual/VComponentVisualAssetSimple.h',
+      'VComponentVisual/VComponentVisualAssetParticle.cpp',
+      'VComponentVisual/VComponentVisualAssetParticle.h',
+      'VComponentVisual/VComponentVisualComponentRenderResource.cpp',
+      'VComponentVisual/VComponentVisualComponentRenderResource.h',
+      'VComponentVisual/VComponentVisualDataBase.cpp',
+      'VComponentVisual/VComponentVisualDataBase.h',
+      'VComponentVisual/VComponentVisualDataHierarchy.cpp',
+      'VComponentVisual/VComponentVisualDataHierarchy.h',
+      'VComponentVisual/VComponentVisualDataHierarchyMatrixCache.cpp',
+      'VComponentVisual/VComponentVisualDataHierarchyMatrixCache.h',
+      'VComponentVisual/VComponentVisualDataHierarchyGeometryData.cpp',
+      'VComponentVisual/VComponentVisualDataHierarchyGeometryData.h',
+      'VComponentVisual/VComponentVisualDataSimple.cpp',
+      'VComponentVisual/VComponentVisualDataSimple.h',
+      'VComponentVisual/VComponentVisualDataParticle.cpp',
+      'VComponentVisual/VComponentVisualDataParticle.h',
+      ],
+    '' : [
+      'VComponentVisual/VComponentVisual.cpp',
+      'VComponentVisual/VComponentVisual.h',
+      'VComponentVisual/VComponentVisual_Export.h', 
+      'VComponentVisual/VComponentVisualAssetHierarchyBoneData.cpp',
+      'VComponentVisual/VComponentVisualAssetHierarchyBoneData.h',
+      'VComponentVisual/VComponentVisualAssetHierarchyGeometryData.cpp',
+      'VComponentVisual/VComponentVisualAssetHierarchyGeometryData.h',
+      'VComponentVisual/VComponentVisualAssetParticleData.cpp',
+      'VComponentVisual/VComponentVisualAssetParticleData.h',
+      'VComponentVisual/VComponentVisualAssetParticleTypeData.cpp',
+      'VComponentVisual/VComponentVisualAssetParticleTypeData.h',
+      'VComponentVisual/VComponentVisualInterfaceObject.cpp',
+      'VComponentVisual/VComponentVisualInterfaceObject.h',
+      'VComponentVisual/VComponentVisualTrait.cpp',
+      'VComponentVisual/VComponentVisualTrait.h',
+      ],
+    },          
+  'VScene' : {
+    'Private' : [
+      'VScene/VSceneComponentNodeCollection.cpp',
+      'VScene/VSceneComponentNodeCollection.h',
+      'VScene/VSceneComponentSphereCollection.cpp',
+      'VScene/VSceneComponentSphereCollection.h',
+      'VScene/VSceneComponentSphereTree.cpp',
+      'VScene/VSceneComponentSphereTree.h',
+      'VScene/VSceneComponentSphereTreeBuild.cpp',
+      'VScene/VSceneComponentSphereTreeBuild.h',
+      'VScene/VSceneComponentSphereTreeSphere.cpp',
+      'VScene/VSceneComponentSphereTreeSphere.h',
+      'VScene/VSceneImplementation.cpp',
+      'VScene/VSceneImplementation.h',   
+      'VScene/VSceneNode.cpp',
+      'VScene/VSceneNode.h',   
+      'VScene/VSceneVisitorAll.cpp',
+      'VScene/VSceneVisitorAll.h',
+      'VScene/VSceneVisitorRay.cpp',
+      'VScene/VSceneVisitorRay.h',
+      'VScene/VSceneVisitorHull.cpp',
+      'VScene/VSceneVisitorHull.h',
+      'VScene/VSceneVisitorSphere.cpp',
+      'VScene/VSceneVisitorSphere.h',
+      'VScene/VSceneVisitorUtility.cpp',
+      'VScene/VSceneVisitorUtility.h',
+      'VScene/VSceneUtilityHelperCollision.cpp',
+      'VScene/VSceneUtilityHelperCollision.h',
+      'VScene/VSceneUtilityHelperRender.cpp',
+      'VScene/VSceneUtilityHelperRender.h',
+      'VScene/VSceneUtilityHelperRenderCollision.cpp',
+      'VScene/VSceneUtilityHelperRenderCollision.h',
+      ],
+    '' : [
+      'VScene/VScene.cpp',
+      'VScene/VScene.h',
+      'VScene/VScene_Export.h',
+      'VScene/VSceneApplicationInterface.cpp',
+      'VScene/VSceneApplicationInterface.h',
+      'VScene/VSceneItemComponentRotation.cpp',
+      'VScene/VSceneItemComponentRotation.h',
+      'VScene/VSceneUtility.cpp',
+      'VScene/VSceneUtility.h',
+      'VScene/VSceneTrait.cpp',
+      'VScene/VSceneTrait.h',
+      ],
+    },    
+  '' : [
+    'Vanity_Export.h',
+    'VanityPreCompileHeader.h',
+    #'VanityPreCompileHeader.cpp', DON'T ADD PCH YET
+    'SConscript'
+    ],
+  }
+  
+######################################
+#adjust our env
+
+if env.get( 'TARGET_DEBUG', False ):
+  env[ 'PDB' ] = translationUnitName + '.pdb'
+
+######################################
+#build exe alias( 'build' )
+
+build = env.BuildMsvs(
+  target = env.File( '${BUILD_DIR}/Code/Lib/' + translationUnitName + '.lib' ),
+  source = [ 
+    translationUnitSolutionName,
+    ] + 
+    GetArrayFromDictionary( sourceFileDict ),  
+  sourceFile = env.File( os.path.join( '#Code', 'Vanity', translationUnitSolutionName ) ).get_abspath(),
+  projectName = translationUnitName,
+  )  
+env.Alias( 'build', build )
+
+######################################
+#build project (default)
+
+if 'CreateMsvsProject' in env['TOOLS']:
+  project = env.CreateMsvsProject(
+    target = translationUnitProjectName,
+    source = [
+      env.File( '${CODE_DIR}/Vanity/Sconscript' ), #list script as project src so project updates on script changes
+    ], #must specify source else you get extention mangled targets as source
+    sourceProjectFiles = sourceFileDict,
+    additionalIncludeDirectories = [
+      "..",
+      ],
+    projectType = 'Win32Proj',
+    buildBase = os.path.join( "..", "..", env.Dir( '.' ).path ),
+    outputDir = os.path.join( "..", "..", env.Dir( '${BUILD_DIR}/Code/Lib' ).path ),
+    buildLib = True,
+    warnAsError = True,
+    multiThread = True,
+    precompileFile = "VanityPreCompileHeader.cpp",
+    precompileThrough = "Vanity/VanityPreCompileHeader.h",
+    #warningLevel = 3,
+    )
+  env.Clean( project, env.File( translationUnitProjectName ).srcnode() )
+  env.Default( project )
+  
+  
+######################################
+#build solution (default)
+
+if 'CreateMsvsSolution' in env['TOOLS']:
+  solution = env.CreateMsvsSolution(
+    target = translationUnitSolutionName,
+    source = translationUnitProjectName,
+    sourceSolutionDependency = { 
+      translationUnitProjectName : [
+        ],
+      "..\\Hubris\\Hubris.vcproj" : [
+        ],
+      "..\\Pride\\Pride.vcproj" : [
+        ],
+      "..\\Envy\\Envy.vcproj" : [
+        ],
+      "..\\Sloth\\Sloth.vcproj" : [
+        ],
+      "..\\Lust\\Lust.vcproj" : [
+        ],
+      },
+    solutionItemArray = [
+      "SConscript",
+      "..\\..\\SolutionItems\\code_standard.txt",   
+      "..\\..\\SolutionItems\\todo.txt",   
+      "..\\..\\SolutionItems\\plan.txt",   
+      ],
+    )
+  env.Clean( solution, env.File( translationUnitSolutionName ).srcnode() )  
+  env.Default( solution )
+    
+  
+#end file
+  

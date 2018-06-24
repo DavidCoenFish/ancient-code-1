@@ -1,0 +1,80 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Hubris", "..\..\Hubris\Hubris.vcproj", "{2E366D00-23F2-2E32-DC6A-E4BB57CA077A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7618A196-32FD-DCBD-8B45-A34AC20A0134} = {7618A196-32FD-DCBD-8B45-A34AC20A0134}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ETestbed", "ETestbed.vcproj", "{CE2C3109-5C9C-0D86-E69C-B9DEAE6A2690}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2E366D00-23F2-2E32-DC6A-E4BB57CA077A} = {2E366D00-23F2-2E32-DC6A-E4BB57CA077A}
+		{9BFBEE9C-A8A6-89F3-A593-FA0CF118982F} = {9BFBEE9C-A8A6-89F3-A593-FA0CF118982F}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Envy", "..\Envy.vcproj", "{9BFBEE9C-A8A6-89F3-A593-FA0CF118982F}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TinyXml", "..\..\..\ThirdParty\TinyXml\TinyXml.vcproj", "{7618A196-32FD-DCBD-8B45-A34AC20A0134}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Final = Final
+		Release = Release
+		Debug = Debug
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{2E366D00-23F2-2E32-DC6A-E4BB57CA077A}.Final.ActiveCfg = Final|Win32
+		{2E366D00-23F2-2E32-DC6A-E4BB57CA077A}.Final.Build.0 = Final|Win32
+		{2E366D00-23F2-2E32-DC6A-E4BB57CA077A}.Release.ActiveCfg = Release|Win32
+		{2E366D00-23F2-2E32-DC6A-E4BB57CA077A}.Release.Build.0 = Release|Win32
+		{2E366D00-23F2-2E32-DC6A-E4BB57CA077A}.Debug.ActiveCfg = Debug|Win32
+		{2E366D00-23F2-2E32-DC6A-E4BB57CA077A}.Debug.Build.0 = Debug|Win32
+		{CE2C3109-5C9C-0D86-E69C-B9DEAE6A2690}.Final.ActiveCfg = Final|Win32
+		{CE2C3109-5C9C-0D86-E69C-B9DEAE6A2690}.Final.Build.0 = Final|Win32
+		{CE2C3109-5C9C-0D86-E69C-B9DEAE6A2690}.Release.ActiveCfg = Release|Win32
+		{CE2C3109-5C9C-0D86-E69C-B9DEAE6A2690}.Release.Build.0 = Release|Win32
+		{CE2C3109-5C9C-0D86-E69C-B9DEAE6A2690}.Debug.ActiveCfg = Debug|Win32
+		{CE2C3109-5C9C-0D86-E69C-B9DEAE6A2690}.Debug.Build.0 = Debug|Win32
+		{9BFBEE9C-A8A6-89F3-A593-FA0CF118982F}.Final.ActiveCfg = Final|Win32
+		{9BFBEE9C-A8A6-89F3-A593-FA0CF118982F}.Final.Build.0 = Final|Win32
+		{9BFBEE9C-A8A6-89F3-A593-FA0CF118982F}.Release.ActiveCfg = Release|Win32
+		{9BFBEE9C-A8A6-89F3-A593-FA0CF118982F}.Release.Build.0 = Release|Win32
+		{9BFBEE9C-A8A6-89F3-A593-FA0CF118982F}.Debug.ActiveCfg = Debug|Win32
+		{9BFBEE9C-A8A6-89F3-A593-FA0CF118982F}.Debug.Build.0 = Debug|Win32
+		{7618A196-32FD-DCBD-8B45-A34AC20A0134}.Final.ActiveCfg = Final|Win32
+		{7618A196-32FD-DCBD-8B45-A34AC20A0134}.Final.Build.0 = Final|Win32
+		{7618A196-32FD-DCBD-8B45-A34AC20A0134}.Release.ActiveCfg = Release|Win32
+		{7618A196-32FD-DCBD-8B45-A34AC20A0134}.Release.Build.0 = Release|Win32
+		{7618A196-32FD-DCBD-8B45-A34AC20A0134}.Debug.ActiveCfg = Debug|Win32
+		{7618A196-32FD-DCBD-8B45-A34AC20A0134}.Debug.Build.0 = Debug|Win32
+	EndGlobalSection
+	GlobalSection(SolutionItems) = postSolution
+		SConscript = SConscript
+		..\..\..\SolutionItems\code_standard.txt = ..\..\..\SolutionItems\code_standard.txt
+		..\..\..\SolutionItems\todo.txt = ..\..\..\SolutionItems\todo.txt
+		..\..\..\SolutionItems\plan.txt = ..\..\..\SolutionItems\plan.txt
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal	
+<!-- SCons Data:
+Y2NvcHlfcmVnCl9yZWNvbnN0cnVjdG9yCnEAKGNDcmVhdGVNc3ZzU29sdXRpb25EYXRhCkNyZWF0
+ZU1zdnNTb2x1dGlvbkRhdGFDbGFzcwpxAWNfX2J1aWx0aW5fXwpvYmplY3QKcQJOdHEDUnEEfXEF
+KFUYc291cmNlU29sdXRpb25EZXBlbmRlbmN5cQZ9cQcoVRouLlwuLlxIdWJyaXNcSHVicmlzLnZj
+cHJvanEIXXEJVQ5UaW55WG1sLnZjcHJvanEKYVUPRVRlc3RiZWQudmNwcm9qcQtdcQwoVQ1IdWJy
+aXMudmNwcm9qcQ1VC0VudnkudmNwcm9qcQ5lVQ4uLlxFbnZ5LnZjcHJvanEPXXEQVSouLlwuLlwu
+LlxUaGlyZFBhcnR5XFRpbnlYbWxcVGlueVhtbC52Y3Byb2pxEV1xEnVVEXNvbHV0aW9uSXRlbUFy
+cmF5cRNdcRQoVQpTQ29uc2NyaXB0cRVVKC4uXC4uXC4uXFNvbHV0aW9uSXRlbXNcY29kZV9zdGFu
+ZGFyZC50eHRxFlUfLi5cLi5cLi5cU29sdXRpb25JdGVtc1x0b2RvLnR4dHEXVR8uLlwuLlwuLlxT
+b2x1dGlvbkl0ZW1zXHBsYW4udHh0cRhlVQlkYXRhQXJyYXlxGV1xGihoAChjQ3JlYXRlTXN2c1Nv
+bHV0aW9uRGF0YQpDcmVhdGVNc3ZzU29sdXRpb25EYXRhQ2xhc3NEYXRhCnEbaAJOdHEcUnEdfXEe
+KFUHcmVsZWFzZXEfVQVGaW5hbHEgVQpjb25maWdOYW1lcSFVC0ZpbmFsfFdpbjMycSJ1YmgAKGgb
+aAJOdHEjUnEkfXElKFUHcmVsZWFzZXEmVQdSZWxlYXNlcSdVCmNvbmZpZ05hbWVxKFUNUmVsZWFz
+ZXxXaW4zMnEpdWJoAChoG2gCTnRxKlJxK31xLChVB3JlbGVhc2VxLVUFRGVidWdxLlUKY29uZmln
+TmFtZXEvVQtEZWJ1Z3xXaW4zMnEwdWJlVRBzb2x1dGlvbkZpbGVOYW1lcTFVNUQ6XGNvZW5cQ29y
+ZVRlY2hcX1RvcFxDb2RlXEVudnlcRVRlc3RiZWRcRVRlc3RiZWQuc2xucTJ1Yi4=
+-->

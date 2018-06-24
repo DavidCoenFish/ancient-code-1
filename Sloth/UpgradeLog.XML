@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="Sloth">
+</Property><Property Name="Solution File" Value="D:\coen\CoreTech\_Top\Code\Sloth\Sloth.sln">
+</Property><Property Name="Date" Value="Wednesday, 8 September 2010">
+</Property><Property Name="Time" Value="10:56 AM">
+</Property></Properties><Event ErrorLevel="0" Project="Sloth" Source="Sloth.vcproj" Description="Web deployment to the local IIS server is no longer supported. The Web Deployment build tool has been removed from your project settings.">
+</Event><Event ErrorLevel="2" Project="Sloth" Source="Sloth.vcproj" Description="The following error has occurred during XML parsing:&#xA;&#xA;File: D:\coen\CoreTech\_Top\Code\Sloth\Sloth.vcproj&#xA;Line: 72&#xA;Column: 17&#xA;Error Message:&#xA;Element 'Configurations' is unexpected according to content model of parent element 'VisualStudioProject'.&#xA;Expecting: Files, Globals.&#xA;&#xA;The file 'D:\coen\CoreTech\_Top\Code\Sloth\Sloth.vcproj' has failed to load.">
+</Event><Event ErrorLevel="2" Project="Sloth" Source="Sloth.vcproj" Description="Project upgrade failed.">
+</Event><Event ErrorLevel="3" Project="Sloth" Source="Sloth.vcproj" Description="Not Converted">
+</Event><Event ErrorLevel="0" Project="Pride" Source="..\Pride\Pride.vcproj" Description="Web deployment to the local IIS server is no longer supported. The Web Deployment build tool has been removed from your project settings.">
+</Event><Event ErrorLevel="2" Project="Pride" Source="..\Pride\Pride.vcproj" Description="The following error has occurred during XML parsing:&#xA;&#xA;File: D:\coen\CoreTech\_Top\Code\Pride\Pride.vcproj&#xA;Line: 72&#xA;Column: 17&#xA;Error Message:&#xA;Element 'Configurations' is unexpected according to content model of parent element 'VisualStudioProject'.&#xA;Expecting: Files, Globals.&#xA;&#xA;The file 'D:\coen\CoreTech\_Top\Code\Pride\Pride.vcproj' has failed to load.">
+</Event><Event ErrorLevel="2" Project="Pride" Source="..\Pride\Pride.vcproj" Description="Project upgrade failed.">
+</Event><Event ErrorLevel="3" Project="Pride" Source="..\Pride\Pride.vcproj" Description="Not Converted">
+</Event><Event ErrorLevel="0" Project="Hubris" Source="..\Hubris\Hubris.vcproj" Description="Project upgraded successfully.">
+</Event><Event ErrorLevel="3" Project="Hubris" Source="..\Hubris\Hubris.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="Sloth.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="Sloth.sln" Description="Converted">
+</Event></UpgradeLog>

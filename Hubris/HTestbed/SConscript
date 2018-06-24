@@ -1,0 +1,147 @@
+#file: Coretech/Code/Hubris/HTestbed/SConscript
+
+###########################################
+# import
+
+import os
+from extras.extras_dictionary import GetArrayFromDictionary
+
+Import( "env" )
+env = env.Clone()
+
+###########################################
+# local varaibles
+
+translationUnitName = 'HTestbed'
+translationUnitProjectName = translationUnitName + env['MSVSPROJECTSUFFIX']
+translationUnitSolutionName = translationUnitName + env['MSVSSOLUTIONSUFFIX']
+
+#src files  
+sourceFileDict = {
+  'Private' : [
+    'HTestbedBuffer.cpp',
+    'HTestbedBuffer.h',
+    'HTestbedBufferParse.cpp',
+    'HTestbedBufferParse.h',
+    'HTestbedCommon.cpp',
+    'HTestbedCommon.h',
+    'HTestbedContainer.cpp',
+    'HTestbedContainer.h',
+    'HTestbedFileSystem.cpp',
+    'HTestbedFileSystem.h',
+    'HTestbedFunctor.cpp',
+    'HTestbedFunctor.h',
+    'HTestbedMath.cpp',
+    'HTestbedMath.h',
+    'HTestbedMatrix.cpp',
+    'HTestbedMatrix.h',
+    'HTestbedQuaternion.cpp',
+    'HTestbedQuaternion.h',
+    'HTestbedSmartPointer.cpp',
+    'HTestbedSmartPointer.h',
+    'HTestbedString.cpp',
+    'HTestbedString.h',
+    'HTestbedTrait.cpp',
+    'HTestbedTrait.h',
+    'HTestbedType.cpp',
+    'HTestbedType.h',
+    'HTestbedVariant.cpp',
+    'HTestbedVariant.h',
+    ],
+  '' : [
+    'HTestbed_Import.h',
+    'HTestbed.cpp',
+    'HTestbed.h',
+    'SConscript'
+    ],
+  }
+
+######################################
+#adjust our env
+
+if env.get( 'TARGET_DEBUG', False ):
+  env[ 'PDB' ] = translationUnitName + '.pdb'
+
+######################################
+#build exe alias( 'build' )
+
+if 'BuildMsvs' in env['TOOLS']:
+  build = env.BuildMsvs(
+    target = translationUnitName + '.exe',
+    source = [ 
+      translationUnitSolutionName,
+      env.File( "${BUILD_DIR}/Code/Lib/Hubris.Lib" ),
+      ] + 
+      GetArrayFromDictionary( sourceFileDict ),
+    sourceFile = env.File( '#Code/Hubris/HTestbed/' + translationUnitSolutionName ),
+    projectName = translationUnitName,
+    )  
+  env.Alias( 'build', build )
+
+######################################
+#run testbed exe alias( 'testbed' )
+
+if 'RunTestbed' in env['TOOLS']:
+  testbed = env.RunTestbed(
+    target = translationUnitName + '.txt',
+    source = translationUnitName + '.exe',
+    )  
+  env.Alias( 'testbed', testbed )
+
+######################################
+#build project (default)
+
+if 'CreateMsvsProject' in env['TOOLS']:
+  project = env.CreateMsvsProject(
+    target = translationUnitProjectName,
+    source = [
+      env.File( '${CODE_DIR}/Hubris/HTestbed/Sconscript' ),
+      ], 
+    sourceProjectFiles = sourceFileDict,
+    additionalIncludeDirectories = [ "../..", ],    
+    additionalDependencies = [ 
+      "Hubris.lib",
+      "TinyXml.lib",
+      ],
+    additionalLibraryDirectories = [ 
+      env.Dir( '${BUILD_DIR}/Code/Lib' ).abspath,
+      env.Dir( '${BUILD_DIR}/ThirdParty/Lib' ).abspath,
+      ],
+    projectType = 'Win32Proj',
+    buildConsole = True,
+    multiThread = True,    
+    buildBase = os.path.join( "..", "..", "..", env.Dir( '.' ).path ),
+    )
+  Clean( project, env.File( translationUnitProjectName ).srcnode() )
+  env.Default( project )
+
+######################################
+#build solution (default)
+
+if 'CreateMsvsSolution' in env['TOOLS']:
+  solution = env.CreateMsvsSolution(
+    target = translationUnitSolutionName,
+    source = [
+      translationUnitProjectName,
+      ],
+    sourceSolutionDependency = { 
+      translationUnitProjectName : [
+        "Hubris.vcproj",
+        ],
+        
+      "..\\Hubris.vcproj" : [
+        "TinyXml.vcproj",
+        ],
+        
+      "..\\..\\..\\ThirdParty\\TinyXml\\TinyXml.vcproj" : [
+        ],
+      },
+    solutionItemArray = [
+      "SConscript",      
+      ] + 
+      env[ 'SOLUTION_ITEMS' ],      
+    )
+  env.Clean( solution, env.File( translationUnitSolutionName ).srcnode() )  
+  env.Default( solution )
+        
+#end file

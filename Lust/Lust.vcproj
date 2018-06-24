@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="7.10"
+	Name="Lust"
+	ProjectGUID="{D7A026C5-541C-4BB7-D3A8-88CBBE2BA897}"
+	SccProjectName="Lust"
+	SccLocalPath="."
+	SccProvider="MSSCCI:Perforce SCM"
+	Keyword="Win32Proj">
+	<Platforms>
+		<Platform
+			Name="Win32"/>
+	</Platforms>
+	<Configurations>
+		<Configuration
+			Name="Final|Win32"
+			OutputDirectory="..\..\Build\Win32_x86_Final\Code\Lib"
+			IntermediateDirectory="..\..\Build\Win32_x86_Final\Code\Lust"
+			ConfigurationType="4"
+			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				PreprocessorDefinitions="WIN32;NDEBUG;_LIB"
+				MinimalRebuild="TRUE"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="0"
+				UsePrecompiledHeader="3"
+				WarningLevel="4"
+				DebugInformationFormat="4"
+				WarnAsError="TRUE"
+				AdditionalIncludeDirectories=".."
+				PrecompiledHeaderThrough="Lust/LustPreCompileHeader.h"
+				
+				/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				OutputFile="$(OutDir)/Lust.exe"
+				LinkIncremental="2"
+				GenerateDebugInformation="FALSE"
+				SubSystem="1"
+				TargetMachine="1"
+
+				/>
+			<Tool
+				Name="VCMIDLTool"/>
+			<Tool
+				Name="VCPostBuildEventTool"/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
+		</Configuration>
+	</Configurations>
+	<References>
+	</References>
+	<Configurations>
+		<Configuration
+			Name="Release|Win32"
+			OutputDirectory="..\..\Build\Win32_x86_Release\Code\Lib"
+			IntermediateDirectory="..\..\Build\Win32_x86_Release\Code\Lust"
+			ConfigurationType="4"
+			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				PreprocessorDefinitions="WIN32;_DEBUG;_LIB"
+				MinimalRebuild="TRUE"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="1"
+				UsePrecompiledHeader="3"
+				WarningLevel="4"
+				DebugInformationFormat="4"
+				WarnAsError="TRUE"
+				AdditionalIncludeDirectories=".."
+				PrecompiledHeaderThrough="Lust/LustPreCompileHeader.h"
+				
+				/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				OutputFile="$(OutDir)/Lust.exe"
+				LinkIncremental="2"
+				GenerateDebugInformation="TRUE"
+				ProgramDatabaseFile="$(OutDir)/Lust.pdb"
+				SubSystem="1"
+				TargetMachine="1"
+
+				/>
+			<Tool
+				Name="VCMIDLTool"/>
+			<Tool
+				Name="VCPostBuildEventTool"/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
+		</Configuration>
+	</Configurations>
+	<References>
+	</References>
+	<Configurations>
+		<Configuration
+			Name="Debug|Win32"
+			OutputDirectory="..\..\Build\Win32_x86_Debug\Code\Lib"
+			IntermediateDirectory="..\..\Build\Win32_x86_Debug\Code\Lust"
+			ConfigurationType="4"
+			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				PreprocessorDefinitions="WIN32;_DEBUG;_LIB"
+				MinimalRebuild="TRUE"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="1"
+				UsePrecompiledHeader="3"
+				WarningLevel="4"
+				DebugInformationFormat="4"
+				WarnAsError="TRUE"
+				AdditionalIncludeDirectories=".."
+				PrecompiledHeaderThrough="Lust/LustPreCompileHeader.h"
+				
+				/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				OutputFile="$(OutDir)/Lust.exe"
+				LinkIncremental="2"
+				GenerateDebugInformation="TRUE"
+				ProgramDatabaseFile="$(OutDir)/Lust.pdb"
+				SubSystem="1"
+				TargetMachine="1"
+
+				/>
+			<Tool
+				Name="VCMIDLTool"/>
+			<Tool
+				Name="VCPostBuildEventTool"/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
+		</Configuration>
+	</Configurations>
+	<References>
+	</References>
+	<Files>
+		<Filter
+			Name="LSpring"
+			Filter="">
+			<File
+				RelativePath=".\LSpring\LSpring.cpp">
+			</File>
+			<File
+				RelativePath=".\LSpring\LSpring.h">
+			</File>
+			<File
+				RelativePath=".\LSpring\LSpringParam.cpp">
+			</File>
+			<File
+				RelativePath=".\LSpring\LSpringParam.h">
+			</File>
+			<File
+				RelativePath=".\LSpring\LSpringTrait.cpp">
+			</File>
+			<File
+				RelativePath=".\LSpring\LSpringTrait.h">
+			</File>
+			<File
+				RelativePath=".\LSpring\LSpringUtility.cpp">
+			</File>
+			<File
+				RelativePath=".\LSpring\LSpringUtility.h">
+			</File>
+			<File
+				RelativePath=".\LSpring\LSpring_Export.h">
+			</File>
+		</Filter>
+
+		<Filter
+			Name="LTranslation"
+			Filter="">
+			<File
+				RelativePath=".\LTranslation\LTranslationComponent.cpp">
+			</File>
+			<File
+				RelativePath=".\LTranslation\LTranslationComponent.h">
+			</File>
+			<File
+				RelativePath=".\LTranslation\LTranslationComponentForceSum.cpp">
+			</File>
+			<File
+				RelativePath=".\LTranslation\LTranslationComponentForceSum.h">
+			</File>
+			<File
+				RelativePath=".\LTranslation\LTranslationComponentVelocity.cpp">
+			</File>
+			<File
+				RelativePath=".\LTranslation\LTranslationComponentVelocity.h">
+			</File>
+			<File
+				RelativePath=".\LTranslation\LTranslation_Export.h">
+			</File>
+		</Filter>
+
+		<File
+			RelativePath=".\LustPreCompileHeader.h">
+		</File>
+		<File
+			RelativePath=".\Lust_Export.h">
+		</File>
+		<File
+			RelativePath=".\SConscript">
+		</File>
+		<File
+			RelativePath=".\LustPreCompileHeader.cpp">
+			<FileConfiguration
+				Name="Final|Win32">
+				<Tool
+					Name="VCCLCompilerTool"
+					UsePrecompiledHeader="1"
+					PrecompiledHeaderThrough="Lust/LustPreCompileHeader.h"/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release|Win32">
+				<Tool
+					Name="VCCLCompilerTool"
+					UsePrecompiledHeader="1"
+					PrecompiledHeaderThrough="Lust/LustPreCompileHeader.h"/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug|Win32">
+				<Tool
+					Name="VCCLCompilerTool"
+					UsePrecompiledHeader="1"
+					PrecompiledHeaderThrough="Lust/LustPreCompileHeader.h"/>
+			</FileConfiguration>
+		</File>
+	</Files>
+	<Globals>
+	</Globals>
+</VisualStudioProject>
+<!-- SCons Data:
+Y2NvcHlfcmVnCl9yZWNvbnN0cnVjdG9yCnEAKGNDcmVhdGVNc3ZzUHJvamVjdERhdGEKQ3JlYXRl
+TXN2c1Byb2plY3REYXRhQ2xhc3MKcQFjX19idWlsdGluX18Kb2JqZWN0CnECTnRxA1JxBH1xBShV
+C3Byb2plY3RUeXBlcQZVCVdpbjMyUHJvanEHVRFwcmVjb21waWxlVGhyb3VnaHEIVRtMdXN0L0x1
+c3RQcmVDb21waWxlSGVhZGVyLmhxCVUUdXNlUHJlY29tcGlsZWRIZWFkZXJxCksDVQ5wcmVjb21w
+aWxlRmlsZXELVRhMdXN0UHJlQ29tcGlsZUhlYWRlci5jcHBxDFUMcGxhdGZvcm1OYW1lcQ1VBVdp
+bjMycQ5VEWhhc1ByZWNvbXBpbGVGaWxlcQ9JMDEKVQlkYXRhQXJyYXlxEF1xEShoAChjQ3JlYXRl
+TXN2c1Byb2plY3REYXRhCkNyZWF0ZU1zdnNQcm9qZWN0RGF0YUNsYXNzRGF0YQpxEmgCTnRxE1Jx
+FH1xFShVCXN1YlN5c3RlbXEWSwFVDGRlYnVnU3ltYm9sc3EXVQVGQUxTRXEYVR5kZXRlY3Q2NEJp
+dFBvcnRhYmlsaXR5UHJvYmxlbXNxGUkwMApVCmNvbmZpZ05hbWVxGlULRmluYWx8V2luMzJxG1Uc
+YWRkaXRpb25hbEluY2x1ZGVEaXJlY3Rvcmllc3EcVQIuLnEdVQlidWlsZEJhc2VxHlUlLi5cLi5c
+QnVpbGRcV2luMzJfeDg2X0ZpbmFsXENvZGVcTHVzdHEfVQt3YXJuQXNFcnJvcnEgSTAxClUDcGRi
+cSFVAHEiVQxkZWZpbmVTdHJpbmdxI1URV0lOMzI7TkRFQlVHO19MSUJxJFURY29uZmlndXJhdGlv
+blR5cGVxJUsEVQx3YXJuaW5nTGV2ZWxxJksEVQ5ydW50aW1lTGlicmFyeXEnSwBVCW91dHB1dERp
+cnEoVSQuLlwuLlxCdWlsZFxXaW4zMl94ODZfRmluYWxcQ29kZVxMaWJxKVUWYWRkaXRpb25hbERl
+cGVuZGVuY2llc3EqaCJVHGFkZGl0aW9uYWxMaWJyYXJ5RGlyZWN0b3JpZXNxK2gidWJoAChoEmgC
+TnRxLFJxLX1xLihVCXN1YlN5c3RlbXEvSwFVDGRlYnVnU3ltYm9sc3EwVQRUUlVFcTFVHmRldGVj
+dDY0Qml0UG9ydGFiaWxpdHlQcm9ibGVtc3EySTAwClUKY29uZmlnTmFtZXEzVQ1SZWxlYXNlfFdp
+bjMycTRVHGFkZGl0aW9uYWxJbmNsdWRlRGlyZWN0b3JpZXNxNVUCLi5xNlUJYnVpbGRCYXNlcTdV
+Jy4uXC4uXEJ1aWxkXFdpbjMyX3g4Nl9SZWxlYXNlXENvZGVcTHVzdHE4VQNwZGJxOVUtCgkJCQlQ
+cm9ncmFtRGF0YWJhc2VGaWxlPSIkKE91dERpcikvTHVzdC5wZGIicTpVC3dhcm5Bc0Vycm9ycTtJ
+MDEKVQxkZWZpbmVTdHJpbmdxPFURV0lOMzI7X0RFQlVHO19MSUJxPVURY29uZmlndXJhdGlvblR5
+cGVxPksEVQx3YXJuaW5nTGV2ZWxxP0sEVQ5ydW50aW1lTGlicmFyeXFASwFVCW91dHB1dERpcnFB
+VSYuLlwuLlxCdWlsZFxXaW4zMl94ODZfUmVsZWFzZVxDb2RlXExpYnFCVRZhZGRpdGlvbmFsRGVw
+ZW5kZW5jaWVzcUNoIlUcYWRkaXRpb25hbExpYnJhcnlEaXJlY3Rvcmllc3FEaCJ1YmgAKGgSaAJO
+dHFFUnFGfXFHKFUJc3ViU3lzdGVtcUhLAVUMZGVidWdTeW1ib2xzcUlVBFRSVUVxSlUeZGV0ZWN0
+NjRCaXRQb3J0YWJpbGl0eVByb2JsZW1zcUtJMDAKVQpjb25maWdOYW1lcUxVC0RlYnVnfFdpbjMy
+cU1VHGFkZGl0aW9uYWxJbmNsdWRlRGlyZWN0b3JpZXNxTlUCLi5xT1UJYnVpbGRCYXNlcVBVJS4u
+XC4uXEJ1aWxkXFdpbjMyX3g4Nl9EZWJ1Z1xDb2RlXEx1c3RxUVUDcGRicVJVLQoJCQkJUHJvZ3Jh
+bURhdGFiYXNlRmlsZT0iJChPdXREaXIpL0x1c3QucGRiInFTVQt3YXJuQXNFcnJvcnFUSTAxClUM
+ZGVmaW5lU3RyaW5ncVVVEVdJTjMyO19ERUJVRztfTElCcVZVEWNvbmZpZ3VyYXRpb25UeXBlcVdL
+BFUMd2FybmluZ0xldmVscVhLBFUOcnVudGltZUxpYnJhcnlxWUsBVQlvdXRwdXREaXJxWlUkLi5c
+Li5cQnVpbGRcV2luMzJfeDg2X0RlYnVnXENvZGVcTGlicVtVFmFkZGl0aW9uYWxEZXBlbmRlbmNp
+ZXNxXGgiVRxhZGRpdGlvbmFsTGlicmFyeURpcmVjdG9yaWVzcV1oInViZXViLg==
+-->

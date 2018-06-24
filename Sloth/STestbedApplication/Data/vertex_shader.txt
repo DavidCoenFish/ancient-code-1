@@ -1,0 +1,10 @@
+void main()
+{
+	gl_FrontColor = ( gl_Color * gl_FrontMaterial.diffuse ) + gl_FrontMaterial.emission;
+	gl_BackColor = ( gl_Color * gl_BackMaterial.diffuse ) + gl_BackMaterial.emission;
+
+	gl_Position = ftransform();
+	gl_TexCoord[ 0 ] = gl_MultiTexCoord0;
+	//const vec3 vertexNormal = gl_NormalMatrix * gl_Normal;
+	gl_NormalMatrix * gl_Normal;
+}

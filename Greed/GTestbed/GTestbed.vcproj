@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="7.10"
+	Name="GTestbed"
+	ProjectGUID="{473452B1-5BE8-8D0F-4288-7309C1277273}"
+	SccProjectName="GTestbed"
+	SccLocalPath="."
+	SccProvider="MSSCCI:Perforce SCM"
+	Keyword="Win32Proj">
+	<Platforms>
+		<Platform
+			Name="Win32"/>
+	</Platforms>
+	<Configurations>
+		<Configuration
+			Name="Final|Win32"
+			OutputDirectory="..\..\..\Build\Win32_x86_Final\Code\Greed\GTestbed"
+			IntermediateDirectory="..\..\..\Build\Win32_x86_Final\Code\Greed\GTestbed"
+			ConfigurationType="1"
+			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE;_CONSOLE"
+				MinimalRebuild="TRUE"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="5"
+				UsePrecompiledHeader="0"
+				WarningLevel="4"
+				DebugInformationFormat="4"
+				AdditionalIncludeDirectories="..\.."
+				
+				/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				OutputFile="$(OutDir)/GTestbed.exe"
+				LinkIncremental="2"
+				GenerateDebugInformation="FALSE"
+				SubSystem="1"
+				TargetMachine="1"
+				AdditionalDependencies="Hubris.lib Envy.lib Pride.lib Lust.lib Greed.lib TinyXml.lib"
+				AdditionalLibraryDirectories="D:\coen\CoreTech\_Top\Build\Win32_x86_Final\Code\Lib;D:\coen\CoreTech\_Top\Build\Win32_x86_Final\ThirdParty\Lib"
+
+				/>
+			<Tool
+				Name="VCMIDLTool"/>
+			<Tool
+				Name="VCPostBuildEventTool"/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
+		</Configuration>
+	</Configurations>
+	<References>
+	</References>
+	<Configurations>
+		<Configuration
+			Name="Release|Win32"
+			OutputDirectory="..\..\..\Build\Win32_x86_Release\Code\Greed\GTestbed"
+			IntermediateDirectory="..\..\..\Build\Win32_x86_Release\Code\Greed\GTestbed"
+			ConfigurationType="1"
+			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE;_CONSOLE"
+				MinimalRebuild="TRUE"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="5"
+				UsePrecompiledHeader="0"
+				WarningLevel="4"
+				DebugInformationFormat="4"
+				AdditionalIncludeDirectories="..\.."
+				
+				/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				OutputFile="$(OutDir)/GTestbed.exe"
+				LinkIncremental="2"
+				GenerateDebugInformation="TRUE"
+				ProgramDatabaseFile="$(OutDir)/GTestbed.pdb"
+				SubSystem="1"
+				TargetMachine="1"
+				AdditionalDependencies="Hubris.lib Envy.lib Pride.lib Lust.lib Greed.lib TinyXml.lib"
+				AdditionalLibraryDirectories="D:\coen\CoreTech\_Top\Build\Win32_x86_Release\Code\Lib;D:\coen\CoreTech\_Top\Build\Win32_x86_Release\ThirdParty\Lib"
+
+				/>
+			<Tool
+				Name="VCMIDLTool"/>
+			<Tool
+				Name="VCPostBuildEventTool"/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
+		</Configuration>
+	</Configurations>
+	<References>
+	</References>
+	<Configurations>
+		<Configuration
+			Name="Debug|Win32"
+			OutputDirectory="..\..\..\Build\Win32_x86_Debug\Code\Greed\GTestbed"
+			IntermediateDirectory="..\..\..\Build\Win32_x86_Debug\Code\Greed\GTestbed"
+			ConfigurationType="1"
+			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE;_CONSOLE"
+				MinimalRebuild="TRUE"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="5"
+				UsePrecompiledHeader="0"
+				WarningLevel="4"
+				DebugInformationFormat="4"
+				AdditionalIncludeDirectories="..\.."
+				
+				/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				OutputFile="$(OutDir)/GTestbed.exe"
+				LinkIncremental="2"
+				GenerateDebugInformation="TRUE"
+				ProgramDatabaseFile="$(OutDir)/GTestbed.pdb"
+				SubSystem="1"
+				TargetMachine="1"
+				AdditionalDependencies="Hubris.lib Envy.lib Pride.lib Lust.lib Greed.lib TinyXml.lib"
+				AdditionalLibraryDirectories="D:\coen\CoreTech\_Top\Build\Win32_x86_Debug\Code\Lib;D:\coen\CoreTech\_Top\Build\Win32_x86_Debug\ThirdParty\Lib"
+
+				/>
+			<Tool
+				Name="VCMIDLTool"/>
+			<Tool
+				Name="VCPostBuildEventTool"/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
+		</Configuration>
+	</Configurations>
+	<References>
+	</References>
+	<Files>
+		<Filter
+			Name="Private"
+			Filter="">
+		</Filter>
+
+		<File
+			RelativePath=".\GTestbed.cpp">
+		</File>
+		<File
+			RelativePath=".\GTestbed.h">
+		</File>
+		<File
+			RelativePath=".\GTestbed_Import.h">
+		</File>
+		<File
+			RelativePath=".\SConscript">
+		</File>
+	</Files>
+	<Globals>
+	</Globals>
+</VisualStudioProject>
+<!-- SCons Data:
+Y2NvcHlfcmVnCl9yZWNvbnN0cnVjdG9yCnEAKGNDcmVhdGVNc3ZzUHJvamVjdERhdGEKQ3JlYXRl
+TXN2c1Byb2plY3REYXRhQ2xhc3MKcQFjX19idWlsdGluX18Kb2JqZWN0CnECTnRxA1JxBH1xBShV
+DHBsYXRmb3JtTmFtZXEGVQVXaW4zMnEHVQtwcm9qZWN0VHlwZXEIVQlXaW4zMlByb2pxCVURaGFz
+UHJlY29tcGlsZUZpbGVxCkkwMApVCWRhdGFBcnJheXELXXEMKGgAKGNDcmVhdGVNc3ZzUHJvamVj
+dERhdGEKQ3JlYXRlTXN2c1Byb2plY3REYXRhQ2xhc3NEYXRhCnENaAJOdHEOUnEPfXEQKFUJc3Vi
+U3lzdGVtcRFLAVUMZGVidWdTeW1ib2xzcRJVBUZBTFNFcRNVHmRldGVjdDY0Qml0UG9ydGFiaWxp
+dHlQcm9ibGVtc3EUSTAwClUKY29uZmlnTmFtZXEVVQtGaW5hbHxXaW4zMnEWVRxhZGRpdGlvbmFs
+SW5jbHVkZURpcmVjdG9yaWVzcRdVBS4uXC4ucRhVCWJ1aWxkQmFzZXEZVTIuLlwuLlwuLlxCdWls
+ZFxXaW4zMl94ODZfRmluYWxcQ29kZVxHcmVlZFxHVGVzdGJlZHEaVQt3YXJuQXNFcnJvcnEbSTAw
+ClUDcGRicRxVAHEdVQxkZWZpbmVTdHJpbmdxHlUeV0lOMzI7TkRFQlVHO19DT05TT0xFO19DT05T
+T0xFcR9VEWNvbmZpZ3VyYXRpb25UeXBlcSBLAVUMd2FybmluZ0xldmVscSFLBFUOcnVudGltZUxp
+YnJhcnlxIksFVQlvdXRwdXREaXJxI2gaVRZhZGRpdGlvbmFsRGVwZW5kZW5jaWVzcSRVPEh1YnJp
+cy5saWIgRW52eS5saWIgUHJpZGUubGliIEx1c3QubGliIEdyZWVkLmxpYiBUaW55WG1sLmxpYnEl
+VRxhZGRpdGlvbmFsTGlicmFyeURpcmVjdG9yaWVzcSZVb0Q6XGNvZW5cQ29yZVRlY2hcX1RvcFxC
+dWlsZFxXaW4zMl94ODZfRmluYWxcQ29kZVxMaWI7RDpcY29lblxDb3JlVGVjaFxfVG9wXEJ1aWxk
+XFdpbjMyX3g4Nl9GaW5hbFxUaGlyZFBhcnR5XExpYnEndWJoAChoDWgCTnRxKFJxKX1xKihVCXN1
+YlN5c3RlbXErSwFVDGRlYnVnU3ltYm9sc3EsVQRUUlVFcS1VHmRldGVjdDY0Qml0UG9ydGFiaWxp
+dHlQcm9ibGVtc3EuSTAwClUKY29uZmlnTmFtZXEvVQ1SZWxlYXNlfFdpbjMycTBVHGFkZGl0aW9u
+YWxJbmNsdWRlRGlyZWN0b3JpZXNxMVUFLi5cLi5xMlUJYnVpbGRCYXNlcTNVNC4uXC4uXC4uXEJ1
+aWxkXFdpbjMyX3g4Nl9SZWxlYXNlXENvZGVcR3JlZWRcR1Rlc3RiZWRxNFUDcGRicTVVMQoJCQkJ
+UHJvZ3JhbURhdGFiYXNlRmlsZT0iJChPdXREaXIpL0dUZXN0YmVkLnBkYiJxNlULd2FybkFzRXJy
+b3JxN0kwMApVDGRlZmluZVN0cmluZ3E4VR5XSU4zMjtfREVCVUc7X0NPTlNPTEU7X0NPTlNPTEVx
+OVURY29uZmlndXJhdGlvblR5cGVxOksBVQx3YXJuaW5nTGV2ZWxxO0sEVQ5ydW50aW1lTGlicmFy
+eXE8SwVVCW91dHB1dERpcnE9aDRVFmFkZGl0aW9uYWxEZXBlbmRlbmNpZXNxPlU8SHVicmlzLmxp
+YiBFbnZ5LmxpYiBQcmlkZS5saWIgTHVzdC5saWIgR3JlZWQubGliIFRpbnlYbWwubGlicT9VHGFk
+ZGl0aW9uYWxMaWJyYXJ5RGlyZWN0b3JpZXNxQFVzRDpcY29lblxDb3JlVGVjaFxfVG9wXEJ1aWxk
+XFdpbjMyX3g4Nl9SZWxlYXNlXENvZGVcTGliO0Q6XGNvZW5cQ29yZVRlY2hcX1RvcFxCdWlsZFxX
+aW4zMl94ODZfUmVsZWFzZVxUaGlyZFBhcnR5XExpYnFBdWJoAChoDWgCTnRxQlJxQ31xRChVCXN1
+YlN5c3RlbXFFSwFVDGRlYnVnU3ltYm9sc3FGVQRUUlVFcUdVHmRldGVjdDY0Qml0UG9ydGFiaWxp
+dHlQcm9ibGVtc3FISTAwClUKY29uZmlnTmFtZXFJVQtEZWJ1Z3xXaW4zMnFKVRxhZGRpdGlvbmFs
+SW5jbHVkZURpcmVjdG9yaWVzcUtVBS4uXC4ucUxVCWJ1aWxkQmFzZXFNVTIuLlwuLlwuLlxCdWls
+ZFxXaW4zMl94ODZfRGVidWdcQ29kZVxHcmVlZFxHVGVzdGJlZHFOVQNwZGJxT1UxCgkJCQlQcm9n
+cmFtRGF0YWJhc2VGaWxlPSIkKE91dERpcikvR1Rlc3RiZWQucGRiInFQVQt3YXJuQXNFcnJvcnFR
+STAwClUMZGVmaW5lU3RyaW5ncVJVHldJTjMyO19ERUJVRztfQ09OU09MRTtfQ09OU09MRXFTVRFj
+b25maWd1cmF0aW9uVHlwZXFUSwFVDHdhcm5pbmdMZXZlbHFVSwRVDnJ1bnRpbWVMaWJyYXJ5cVZL
+BVUJb3V0cHV0RGlycVdoTlUWYWRkaXRpb25hbERlcGVuZGVuY2llc3FYVTxIdWJyaXMubGliIEVu
+dnkubGliIFByaWRlLmxpYiBMdXN0LmxpYiBHcmVlZC5saWIgVGlueVhtbC5saWJxWVUcYWRkaXRp
+b25hbExpYnJhcnlEaXJlY3Rvcmllc3FaVW9EOlxjb2VuXENvcmVUZWNoXF9Ub3BcQnVpbGRcV2lu
+MzJfeDg2X0RlYnVnXENvZGVcTGliO0Q6XGNvZW5cQ29yZVRlY2hcX1RvcFxCdWlsZFxXaW4zMl94
+ODZfRGVidWdcVGhpcmRQYXJ0eVxMaWJxW3ViZVUUdXNlUHJlY29tcGlsZWRIZWFkZXJxXEsAdWIu
+-->

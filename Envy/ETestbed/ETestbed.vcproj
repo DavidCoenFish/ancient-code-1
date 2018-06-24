@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="7.10"
+	Name="ETestbed"
+	ProjectGUID="{CE2C3109-5C9C-0D86-E69C-B9DEAE6A2690}"
+	SccProjectName="ETestbed"
+	SccLocalPath="."
+	SccProvider="MSSCCI:Perforce SCM"
+	Keyword="Win32Proj">
+	<Platforms>
+		<Platform
+			Name="Win32"/>
+	</Platforms>
+	<Configurations>
+		<Configuration
+			Name="Final|Win32"
+			OutputDirectory="..\..\..\Build\Win32_x86_Final\Code\Envy\ETestbed"
+			IntermediateDirectory="..\..\..\Build\Win32_x86_Final\Code\Envy\ETestbed"
+			ConfigurationType="1"
+			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE"
+				MinimalRebuild="TRUE"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="0"
+				UsePrecompiledHeader="0"
+				WarningLevel="4"
+				DebugInformationFormat="4"
+				AdditionalIncludeDirectories="..\..\"
+				
+				/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				OutputFile="$(OutDir)/ETestbed.exe"
+				LinkIncremental="2"
+				GenerateDebugInformation="FALSE"
+				SubSystem="1"
+				TargetMachine="1"
+				AdditionalDependencies="Hubris.lib Envy.lib TinyXml.lib"
+				AdditionalLibraryDirectories="D:\coen\CoreTech\_Top\Build\Win32_x86_Final\Code\Lib;D:\coen\CoreTech\_Top\Build\Win32_x86_Final\ThirdParty\Lib"
+
+				/>
+			<Tool
+				Name="VCMIDLTool"/>
+			<Tool
+				Name="VCPostBuildEventTool"/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
+		</Configuration>
+	</Configurations>
+	<References>
+	</References>
+	<Configurations>
+		<Configuration
+			Name="Release|Win32"
+			OutputDirectory="..\..\..\Build\Win32_x86_Release\Code\Envy\ETestbed"
+			IntermediateDirectory="..\..\..\Build\Win32_x86_Release\Code\Envy\ETestbed"
+			ConfigurationType="1"
+			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE"
+				MinimalRebuild="TRUE"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="1"
+				UsePrecompiledHeader="0"
+				WarningLevel="4"
+				DebugInformationFormat="4"
+				AdditionalIncludeDirectories="..\..\"
+				
+				/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				OutputFile="$(OutDir)/ETestbed.exe"
+				LinkIncremental="2"
+				GenerateDebugInformation="TRUE"
+				ProgramDatabaseFile="$(OutDir)/ETestbed.pdb"
+				SubSystem="1"
+				TargetMachine="1"
+				AdditionalDependencies="Hubris.lib Envy.lib TinyXml.lib"
+				AdditionalLibraryDirectories="D:\coen\CoreTech\_Top\Build\Win32_x86_Release\Code\Lib;D:\coen\CoreTech\_Top\Build\Win32_x86_Release\ThirdParty\Lib"
+
+				/>
+			<Tool
+				Name="VCMIDLTool"/>
+			<Tool
+				Name="VCPostBuildEventTool"/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
+		</Configuration>
+	</Configurations>
+	<References>
+	</References>
+	<Configurations>
+		<Configuration
+			Name="Debug|Win32"
+			OutputDirectory="..\..\..\Build\Win32_x86_Debug\Code\Envy\ETestbed"
+			IntermediateDirectory="..\..\..\Build\Win32_x86_Debug\Code\Envy\ETestbed"
+			ConfigurationType="1"
+			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE"
+				MinimalRebuild="TRUE"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="1"
+				UsePrecompiledHeader="0"
+				WarningLevel="4"
+				DebugInformationFormat="4"
+				AdditionalIncludeDirectories="..\..\"
+				
+				/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				OutputFile="$(OutDir)/ETestbed.exe"
+				LinkIncremental="2"
+				GenerateDebugInformation="TRUE"
+				ProgramDatabaseFile="$(OutDir)/ETestbed.pdb"
+				SubSystem="1"
+				TargetMachine="1"
+				AdditionalDependencies="Hubris.lib Envy.lib TinyXml.lib"
+				AdditionalLibraryDirectories="D:\coen\CoreTech\_Top\Build\Win32_x86_Debug\Code\Lib;D:\coen\CoreTech\_Top\Build\Win32_x86_Debug\ThirdParty\Lib"
+
+				/>
+			<Tool
+				Name="VCMIDLTool"/>
+			<Tool
+				Name="VCPostBuildEventTool"/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
+		</Configuration>
+	</Configurations>
+	<References>
+	</References>
+	<Files>
+		<Filter
+			Name="Private"
+			Filter="">
+			<File
+				RelativePath=".\ETestbedCommandLine.cpp">
+			</File>
+			<File
+				RelativePath=".\ETestbedCommandLine.h">
+			</File>
+			<File
+				RelativePath=".\ETestbedDataStore.cpp">
+			</File>
+			<File
+				RelativePath=".\ETestbedDataStore.h">
+			</File>
+			<File
+				RelativePath=".\ETestbedJana.cpp">
+			</File>
+			<File
+				RelativePath=".\ETestbedJana.h">
+			</File>
+			<File
+				RelativePath=".\ETestbedMemento.cpp">
+			</File>
+			<File
+				RelativePath=".\ETestbedMemento.h">
+			</File>
+			<File
+				RelativePath=".\ETestbedRecursiveDataStore.cpp">
+			</File>
+			<File
+				RelativePath=".\ETestbedRecursiveDataStore.h">
+			</File>
+			<File
+				RelativePath=".\ETestbedResourceIdManager.cpp">
+			</File>
+			<File
+				RelativePath=".\ETestbedResourceIdManager.h">
+			</File>
+			<File
+				RelativePath=".\ETestbedStateMachine.cpp">
+			</File>
+			<File
+				RelativePath=".\ETestbedStateMachine.h">
+			</File>
+			<File
+				RelativePath=".\ETestbedStateMachineSimple.cpp">
+			</File>
+			<File
+				RelativePath=".\ETestbedStateMachineSimple.h">
+			</File>
+			<File
+				RelativePath=".\ETestbedStringTable.cpp">
+			</File>
+			<File
+				RelativePath=".\ETestbedStringTable.h">
+			</File>
+			<File
+				RelativePath=".\ETestbedTanya.cpp">
+			</File>
+			<File
+				RelativePath=".\ETestbedTanya.h">
+			</File>
+		</Filter>
+
+		<File
+			RelativePath=".\ETestbed.cpp">
+		</File>
+		<File
+			RelativePath=".\ETestbed.h">
+		</File>
+		<File
+			RelativePath=".\ETestbed_Import.h">
+		</File>
+		<File
+			RelativePath=".\SConscript">
+		</File>
+	</Files>
+	<Globals>
+	</Globals>
+</VisualStudioProject>
+<!-- SCons Data:
+Y2NvcHlfcmVnCl9yZWNvbnN0cnVjdG9yCnEAKGNDcmVhdGVNc3ZzUHJvamVjdERhdGEKQ3JlYXRl
+TXN2c1Byb2plY3REYXRhQ2xhc3MKcQFjX19idWlsdGluX18Kb2JqZWN0CnECTnRxA1JxBH1xBShV
+DHBsYXRmb3JtTmFtZXEGVQVXaW4zMnEHVQtwcm9qZWN0VHlwZXEIVQlXaW4zMlByb2pxCVURaGFz
+UHJlY29tcGlsZUZpbGVxCkkwMApVCWRhdGFBcnJheXELXXEMKGgAKGNDcmVhdGVNc3ZzUHJvamVj
+dERhdGEKQ3JlYXRlTXN2c1Byb2plY3REYXRhQ2xhc3NEYXRhCnENaAJOdHEOUnEPfXEQKFUJc3Vi
+U3lzdGVtcRFLAVUMZGVidWdTeW1ib2xzcRJVBUZBTFNFcRNVHmRldGVjdDY0Qml0UG9ydGFiaWxp
+dHlQcm9ibGVtc3EUSTAwClUKY29uZmlnTmFtZXEVVQtGaW5hbHxXaW4zMnEWVRxhZGRpdGlvbmFs
+SW5jbHVkZURpcmVjdG9yaWVzcRdVBi4uXC4uXHEYVQlidWlsZEJhc2VxGVUxLi5cLi5cLi5cQnVp
+bGRcV2luMzJfeDg2X0ZpbmFsXENvZGVcRW52eVxFVGVzdGJlZHEaVQt3YXJuQXNFcnJvcnEbSTAw
+ClUDcGRicRxVAHEdVQxkZWZpbmVTdHJpbmdxHlUVV0lOMzI7TkRFQlVHO19DT05TT0xFcR9VEWNv
+bmZpZ3VyYXRpb25UeXBlcSBLAVUMd2FybmluZ0xldmVscSFLBFUOcnVudGltZUxpYnJhcnlxIksA
+VQlvdXRwdXREaXJxI2gaVRZhZGRpdGlvbmFsRGVwZW5kZW5jaWVzcSRVH0h1YnJpcy5saWIgRW52
+eS5saWIgVGlueVhtbC5saWJxJVUcYWRkaXRpb25hbExpYnJhcnlEaXJlY3Rvcmllc3EmVW9EOlxj
+b2VuXENvcmVUZWNoXF9Ub3BcQnVpbGRcV2luMzJfeDg2X0ZpbmFsXENvZGVcTGliO0Q6XGNvZW5c
+Q29yZVRlY2hcX1RvcFxCdWlsZFxXaW4zMl94ODZfRmluYWxcVGhpcmRQYXJ0eVxMaWJxJ3ViaAAo
+aA1oAk50cShScSl9cSooVQlzdWJTeXN0ZW1xK0sBVQxkZWJ1Z1N5bWJvbHNxLFUEVFJVRXEtVR5k
+ZXRlY3Q2NEJpdFBvcnRhYmlsaXR5UHJvYmxlbXNxLkkwMApVCmNvbmZpZ05hbWVxL1UNUmVsZWFz
+ZXxXaW4zMnEwVRxhZGRpdGlvbmFsSW5jbHVkZURpcmVjdG9yaWVzcTFVBi4uXC4uXHEyVQlidWls
+ZEJhc2VxM1UzLi5cLi5cLi5cQnVpbGRcV2luMzJfeDg2X1JlbGVhc2VcQ29kZVxFbnZ5XEVUZXN0
+YmVkcTRVA3BkYnE1VTEKCQkJCVByb2dyYW1EYXRhYmFzZUZpbGU9IiQoT3V0RGlyKS9FVGVzdGJl
+ZC5wZGIicTZVC3dhcm5Bc0Vycm9ycTdJMDAKVQxkZWZpbmVTdHJpbmdxOFUVV0lOMzI7X0RFQlVH
+O19DT05TT0xFcTlVEWNvbmZpZ3VyYXRpb25UeXBlcTpLAVUMd2FybmluZ0xldmVscTtLBFUOcnVu
+dGltZUxpYnJhcnlxPEsBVQlvdXRwdXREaXJxPWg0VRZhZGRpdGlvbmFsRGVwZW5kZW5jaWVzcT5V
+H0h1YnJpcy5saWIgRW52eS5saWIgVGlueVhtbC5saWJxP1UcYWRkaXRpb25hbExpYnJhcnlEaXJl
+Y3Rvcmllc3FAVXNEOlxjb2VuXENvcmVUZWNoXF9Ub3BcQnVpbGRcV2luMzJfeDg2X1JlbGVhc2Vc
+Q29kZVxMaWI7RDpcY29lblxDb3JlVGVjaFxfVG9wXEJ1aWxkXFdpbjMyX3g4Nl9SZWxlYXNlXFRo
+aXJkUGFydHlcTGlicUF1YmgAKGgNaAJOdHFCUnFDfXFEKFUJc3ViU3lzdGVtcUVLAVUMZGVidWdT
+eW1ib2xzcUZVBFRSVUVxR1UeZGV0ZWN0NjRCaXRQb3J0YWJpbGl0eVByb2JsZW1zcUhJMDAKVQpj
+b25maWdOYW1lcUlVC0RlYnVnfFdpbjMycUpVHGFkZGl0aW9uYWxJbmNsdWRlRGlyZWN0b3JpZXNx
+S1UGLi5cLi5ccUxVCWJ1aWxkQmFzZXFNVTEuLlwuLlwuLlxCdWlsZFxXaW4zMl94ODZfRGVidWdc
+Q29kZVxFbnZ5XEVUZXN0YmVkcU5VA3BkYnFPVTEKCQkJCVByb2dyYW1EYXRhYmFzZUZpbGU9IiQo
+T3V0RGlyKS9FVGVzdGJlZC5wZGIicVBVC3dhcm5Bc0Vycm9ycVFJMDAKVQxkZWZpbmVTdHJpbmdx
+UlUVV0lOMzI7X0RFQlVHO19DT05TT0xFcVNVEWNvbmZpZ3VyYXRpb25UeXBlcVRLAVUMd2Fybmlu
+Z0xldmVscVVLBFUOcnVudGltZUxpYnJhcnlxVksBVQlvdXRwdXREaXJxV2hOVRZhZGRpdGlvbmFs
+RGVwZW5kZW5jaWVzcVhVH0h1YnJpcy5saWIgRW52eS5saWIgVGlueVhtbC5saWJxWVUcYWRkaXRp
+b25hbExpYnJhcnlEaXJlY3Rvcmllc3FaVW9EOlxjb2VuXENvcmVUZWNoXF9Ub3BcQnVpbGRcV2lu
+MzJfeDg2X0RlYnVnXENvZGVcTGliO0Q6XGNvZW5cQ29yZVRlY2hcX1RvcFxCdWlsZFxXaW4zMl94
+ODZfRGVidWdcVGhpcmRQYXJ0eVxMaWJxW3ViZVUUdXNlUHJlY29tcGlsZWRIZWFkZXJxXEsAdWIu
+-->

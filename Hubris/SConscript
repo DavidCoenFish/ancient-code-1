@@ -1,0 +1,433 @@
+#file: Coretech/Code/Hubris/SConscript
+
+
+###########################################
+# import
+
+import os
+from extras.extras_dictionary import GetArrayFromDictionary
+
+Import( "env" )
+env = env.Clone()
+
+
+###########################################
+# invoke children sconscripts
+
+# call children SConscript files
+env.SConscript(
+  [ 'HTestbed/SConscript',
+    ],
+  exports = {
+    "env" : env
+    },
+  )
+  
+
+###########################################
+# local varaibles
+
+translationUnitName = 'Hubris'
+translationUnitProjectName = translationUnitName + env['MSVSPROJECTSUFFIX']
+translationUnitSolutionName = translationUnitName + env['MSVSSOLUTIONSUFFIX']
+translationUnitTargetName = translationUnitName + '.lib'
+
+#src files  
+sourceFileDict = {
+  'HBuffer' : {
+    '' : [
+      'HBuffer/HBuffer_Export.h',
+      'HBuffer/HBuffer.cpp',
+      'HBuffer/HBuffer.h',
+      'HBuffer/HBufferOperators.cpp',
+      'HBuffer/HBufferOperators.h', 
+      'HBuffer/HBufferUtility.cpp',
+      'HBuffer/HBufferUtility.h', 
+      'HBuffer/HBufferTrait.cpp',
+      'HBuffer/HBufferTrait.h', 
+      ],
+    },
+  'HBufferParse' : {
+    'Private' : [
+      'HBufferParse/HBufferParseBinType.cpp',
+      'HBufferParse/HBufferParseBinType.h',
+      'HBufferParse/HBufferParseLoadBin.cpp',
+      'HBufferParse/HBufferParseLoadBin.h',
+      'HBufferParse/HBufferParseLoadText.cpp',
+      'HBufferParse/HBufferParseLoadText.h',
+      'HBufferParse/HBufferParseSaveBin.cpp',
+      'HBufferParse/HBufferParseSaveBin.h',
+      'HBufferParse/HBufferParseSaveText.cpp',
+      'HBufferParse/HBufferParseSaveText.h',
+      'HBufferParse/HBufferParseTextVariables.cpp',     
+      'HBufferParse/HBufferParseTextVariables.h',
+      'HBufferParse/HBufferParseUtilityPrivate.cpp',
+      'HBufferParse/HBufferParseUtilityPrivate.h',
+      ],
+    '' : [ 
+      'HBufferParse/HBufferParse_Export.h',
+      'HBufferParse/HBufferParseLoad.cpp',
+      'HBufferParse/HBufferParseLoad.h',
+      'HBufferParse/HBufferParseLoadVisitorInterface.cpp',
+      'HBufferParse/HBufferParseLoadVisitorInterface.h',
+      'HBufferParse/HBufferParseSave.cpp',
+      'HBufferParse/HBufferParseSave.h',
+      'HBufferParse/HBufferParseManager.cpp',
+      'HBufferParse/HBufferParseManager.h',      
+      'HBufferParse/HBufferParseVariant.cpp',     
+      'HBufferParse/HBufferParseVariant.h',     
+      'HBufferParse/HBufferParseVariantTrait.cpp',
+      'HBufferParse/HBufferParseVariantTrait.h',
+      ],
+    },
+  'HCommon' : {
+    '' : [
+      'HCommon/HCommon_Export.h',
+      'HCommon/HCommonAssert.cpp',
+      'HCommon/HCommonAssert.h',
+      'HCommon/HCommonBitCount.cpp',
+      'HCommon/HCommonBitCount.h',
+      'HCommon/HCommonDefine.cpp',
+      'HCommon/HCommonDefine.h',
+      'HCommon/HCommonForEach.cpp',
+      'HCommon/HCommonForEach.h',
+      'HCommon/HCommonLowestBit.cpp',
+      'HCommon/HCommonLowestBit.h',
+      'HCommon/HCommonMemory.cpp',
+      'HCommon/HCommonMemory.h',
+      'HCommon/HCommonType.cpp',
+      'HCommon/HCommonType.h',
+      ],
+    },
+  'HContainer' : {
+    'Private' : [
+      'HContainer/HContainerObjectPoolPage.h',
+      'HContainer/HContainerObjectPoolPage.cpp',
+      ],
+    '' : [
+      'HContainer/HContainer_Export.h',
+      'HContainer/HContainerAlgorithm.cpp',
+      'HContainer/HContainerAlgorithm.h',
+      'HContainer/HContainerAlgorithmSort.cpp',
+      'HContainer/HContainerAlgorithmSort.h',
+      'HContainer/HContainerArray.cpp',
+      'HContainer/HContainerArray.h',
+      'HContainer/HContainerArrayBit.cpp',
+      'HContainer/HContainerArrayBit.h',
+      'HContainer/HContainerArrayBool.cpp',
+      'HContainer/HContainerArrayBool.h',
+      'HContainer/HContainerArrayIterator.cpp',
+      'HContainer/HContainerArrayIterator.h',
+      'HContainer/HContainerArrayTrait.cpp',
+      'HContainer/HContainerArrayTrait.h',
+      'HContainer/HContainerObjectPool.cpp',
+      'HContainer/HContainerObjectPool.h',
+      'HContainer/HContainerPair.cpp',
+      'HContainer/HContainerPair.h',
+      'HContainer/HContainerPairTrait.cpp',
+      'HContainer/HContainerPairTrait.h',
+      'HContainer/HContainerStaticArray.cpp',
+      'HContainer/HContainerStaticArray.h',
+      'HContainer/HContainerTree.cpp',
+      'HContainer/HContainerTree.h',
+      'HContainer/HContainerTreeTrait.cpp',
+      'HContainer/HContainerTreeTrait.h',
+      'HContainer/HContainerLess.cpp',
+      'HContainer/HContainerLess.h',
+      'HContainer/HContainerTreeIterator.cpp',
+      'HContainer/HContainerTreeIterator.h',
+      'HContainer/HContainerUtility.cpp',
+      'HContainer/HContainerUtility.h',       
+      ],
+    },
+  'HFileSystem' : {
+    'Private' : [
+      'HFileSystem/HFileSystemPathImplement.cpp',
+      'HFileSystem/HFileSystemPathImplement.h',
+      'HFileSystem/HFileSystemPc.cpp',
+      'HFileSystem/HFileSystemPc.h',
+      'HFileSystem/HFileSystemTimeImplementPc.cpp',
+      'HFileSystem/HFileSystemTimeImplementPc.h',
+      ],
+    '' : [
+      'HFileSystem/HFileSystem_Export.h',    
+      'HFileSystem/HFileSystem.cpp',
+      'HFileSystem/HFileSystem.h',
+      'HFileSystem/HFileSystemPath.cpp',
+      'HFileSystem/HFileSystemPath.h',
+      'HFileSystem/HFileSystemPathTrait.cpp',
+      'HFileSystem/HFileSystemPathTrait.h',
+      'HFileSystem/HFileSystemPathUtility.cpp',
+      'HFileSystem/HFileSystemPathUtility.h',
+      'HFileSystem/HFileSystemTime.cpp',
+      'HFileSystem/HFileSystemTime.h',
+      'HFileSystem/HFileSystemTimeTrait.cpp',
+      'HFileSystem/HFileSystemTimeTrait.h',
+      ],
+    },
+  'HFunctor' : {
+    'Private' : [
+      'HFunctor/HFunctorBase.cpp',
+      'HFunctor/HFunctorBase.h',
+      'HFunctor/HFunctorMemberWrapper.cpp',
+      'HFunctor/HFunctorMemberWrapper.h',
+      'HFunctor/HFunctorWrapper.cpp',
+      'HFunctor/HFunctorWrapper.h',
+      'HFunctor/HFunctorImplementation.cpp',
+      'HFunctor/HFunctorImplementation.h',
+      ],
+    '' : [
+      'HFunctor/HFunctor_Export.h',
+      'HFunctor/HFunctor.cpp',
+      'HFunctor/HFunctor.h',
+      ],
+    },    
+  'HMath' : {
+    'Private' : [
+      'HMath/HMathRandomObjectImplementation.cpp',
+      'HMath/HMathRandomObjectImplementation.h',
+      ],
+    '' : [
+      'HMath/HMath_Export.h',
+      'HMath/HMath.cpp',
+      'HMath/HMath.h',
+      'HMath/HMathArea.cpp',
+      'HMath/HMathArea.h',
+      'HMath/HMathUtility.cpp',
+      'HMath/HMathUtility.h',
+      'HMath/HMathRandom.cpp',
+      'HMath/HMathRandom.h',
+      'HMath/HMathRandomObject.cpp',
+      'HMath/HMathRandomObject.h',
+      'HMath/HMathVolume.cpp',
+      'HMath/HMathVolume.h',
+      ],
+    },
+  'HMatrix' : {
+    'Private' : [
+      'HMatrix/HMatrixImplementation.cpp',
+      'HMatrix/HMatrixImplementation.h',
+      'HMatrix/HMatrixOperatorImp.hxx',
+      'HMatrix/HMatrixOperatorImpStandard.hxx',
+      'HMatrix/HMatrixOperatorImpMultiplication.hxx',
+      'HMatrix/HMatrixOperatorImpMultiplicationFull.hxx',
+      ],
+    '' : [
+      'HMatrix/HMatrix_Export.h',    
+      'HMatrix/HMatrix.cpp',
+      'HMatrix/HMatrix.h',
+      'HMatrix/HMatrixConstructor.cpp',
+      'HMatrix/HMatrixConstructor.h',
+      'HMatrix/HMatrixMathUtility.cpp',
+      'HMatrix/HMatrixMathUtility.h',
+      'HMatrix/HMatrixOperator.cpp',
+      'HMatrix/HMatrixOperator.h',
+      'HMatrix/HMatrixTrait.cpp',
+      'HMatrix/HMatrixTrait.h',
+      'HMatrix/HMatrixUtility.cpp',
+      'HMatrix/HMatrixUtility.h',
+      ],
+    },
+  'HQuaternion' : {
+    '' : [
+      'HQuaternion/HQuaternion_Export.h',    
+      'HQuaternion/HQuaternion.cpp',
+      'HQuaternion/HQuaternion.h',
+      'HQuaternion/HQuaternionMathUtility.cpp',
+      'HQuaternion/HQuaternionMathUtility.h',
+      'HQuaternion/HQuaternionOperator.cpp',
+      'HQuaternion/HQuaternionOperator.h',
+      'HQuaternion/HQuaternionTrait.cpp',
+      'HQuaternion/HQuaternionTrait.h',   
+      'HQuaternion/HQuaternionUtility.cpp',
+      'HQuaternion/HQuaternionUtility.h',   
+      ],
+    },
+  'HSmartPointer' : {
+    'Private' : [
+      'HSmartPointer/HSmartPointerReferenceCount.cpp',
+      'HSmartPointer/HSmartPointerReferenceCount.h',
+      ],
+    '' : [
+      'HSmartPointer/HSmartPointer_Export.h',   
+      'HSmartPointer/HSmartPointer.cpp',
+      'HSmartPointer/HSmartPointer.h',
+      'HSmartPointer/HSmartPointerObjectBase.cpp',
+      'HSmartPointer/HSmartPointerObjectBase.h',
+      'HSmartPointer/HSmartPointerOperators.cpp',
+      'HSmartPointer/HSmartPointerOperators.h',
+      'HSmartPointer/HSmartPointerUtility.cpp',
+      'HSmartPointer/HSmartPointerUtility.h',
+      ],
+    },
+  'HString' : {
+    '' : [
+      'HString/HString_Export.h',    
+      'HString/HString.cpp',
+      'HString/HString.h',
+      'HString/HStringOperators.cpp',
+      'HString/HStringOperators.h',
+      'HString/HStringTrait.cpp',
+      'HString/HStringTrait.h',
+      'HString/HStringUtility.cpp',
+      'HString/HStringUtility.h',
+      ],
+    },
+  'HTinyXml' : {
+    '' : [
+      'HTinyXml/HTinyXml_Export.h',    
+      'HTinyXml/HTinyXmlUtility.cpp',
+      'HTinyXml/HTinyXmlUtility.h',
+      ],
+    },
+  'HTrait' : {
+    '' : [
+      'HTrait/HTrait_Export.h',    
+      'HTrait/HTraitBufferIn.cpp',
+      'HTrait/HTraitBufferIn.h',
+      'HTrait/HTraitBufferOut.cpp',
+      'HTrait/HTraitBufferOut.h',
+      'HTrait/HTraitEmpty.cpp',
+      'HTrait/HTraitEmpty.h',
+      'HTrait/HTraitStringIn.cpp',
+      'HTrait/HTraitStringIn.h',
+      'HTrait/HTraitStringOut.cpp',
+      'HTrait/HTraitStringOut.h',
+      'HTrait/HTraitSwap.cpp',
+      'HTrait/HTraitSwap.h',
+      'HTrait/HTraitName.cpp',
+      'HTrait/HTraitName.h',
+      ],
+    },
+  'HType' : {
+    '' : [
+      'HType/HType_Export.h',    
+      'HType/HTypeHandle.cpp',
+      'HType/HTypeHandle.h',
+      'HType/HTypeIndex.cpp',
+      'HType/HTypeIndex.h',
+      'HType/HTypeList.cpp',
+      'HType/HTypeList.h',
+      'HType/HTypeListTrait.cpp',
+      'HType/HTypeListTrait.h',
+      'HType/HTypeListUtility.cpp',
+      'HType/HTypeListUtility.h',
+      'HType/HTypeNone.cpp',
+      'HType/HTypeNone.h',
+      'HType/HTypeNoneTrait.cpp',
+      'HType/HTypeNoneTrait.h',
+      'HType/HTypeRunTimeInfo.cpp',
+      'HType/HTypeRunTimeInfo.h',
+      ],
+    },
+  'HVariables' : {
+    '' : [
+      'HVariables/HVariables_Export.h',    
+      'HVariables/HVariablesFileSystem.cpp',
+      'HVariables/HVariablesFileSystem.h',
+      'HVariables/HVariablesMath.cpp',
+      'HVariables/HVariablesMath.h',
+      'HVariables/HVariablesString.cpp',
+      'HVariables/HVariablesString.h',
+      ],
+    },    
+  'HVariant' : {
+    'Private' : [
+      'HVariant/HVariantData.cpp',
+      'HVariant/HVariantData.h',
+      'HVariant/HVariantDataBase.cpp',
+      'HVariant/HVariantDataBase.h',
+      'HVariant/HVariantImplementation.cpp',
+      'HVariant/HVariantImplementation.h',
+      ],
+    '' : [
+      'HVariant/HVariant_Export.h',   
+      'HVariant/HVariant.cpp',
+      'HVariant/HVariant.h',
+      'HVariant/HVariantTrait.cpp',
+      'HVariant/HVariantTrait.h',    
+      'HVariant/HVariantUtility.cpp',
+      'HVariant/HVariantUtility.h',    
+      ],
+    },
+  '' : [
+    'HubrisPreCompileHeader.h',
+    #'HubrisPreCompileHeader.cpp', pch generator included latter
+    'Hubris_Export.h',
+    'SConscript'
+    ],
+  }
+
+######################################
+#adjust our env
+
+if env.get( 'TARGET_DEBUG', False ):
+  env[ 'PDB' ] = translationUnitName + '.pdb'
+
+######################################
+#build exe alias( 'build' )
+
+if 'BuildMsvs' in env['TOOLS']:
+  build = env.BuildMsvs(
+    target = env.File( '${BUILD_DIR}/Code/Lib/' + translationUnitName + '.lib' ),
+    source = [ 
+      translationUnitSolutionName,
+      env.File( "${BUILD_DIR}/ThirdParty/Lib/TinyXml.Lib" ),      
+      ] + 
+      GetArrayFromDictionary( sourceFileDict ),  
+    sourceFile = env.File( '${CODE_DIR}/Hubris/' + translationUnitSolutionName ).get_abspath(),
+    projectName = translationUnitName,
+    )  
+  env.Alias( 'build', build )
+
+######################################
+#build project
+
+if 'CreateMsvsProject' in env['TOOLS']:
+  project = env.CreateMsvsProject(
+    target = translationUnitProjectName,
+    source = [
+      env.File( '${CODE_DIR}/Hubris/Sconscript' ), #list script as project src so project updates on script changes
+    ], #must specify source else you get extention mangled targets as source
+    sourceProjectFiles = sourceFileDict,
+    additionalIncludeDirectories = [ 
+      "..", 
+      "../../ThirdParty/TinyXml",
+      ],
+    projectType = 'Win32Proj',
+    buildBase = os.path.join( "..", "..", env.Dir( '.' ).path ),
+    outputDir = os.path.join( "..", "..", env.Dir( '${BUILD_DIR}/Code/Lib' ).path ),
+    buildLib = True,
+    warnAsError = True,
+    multiThread = True,
+    precompileFile = "HubrisPreCompileHeader.cpp",
+    precompileThrough = "Hubris/HubrisPreCompileHeader.h",
+    #warningLevel = 3,
+    )
+  env.Clean( project, env.File( translationUnitProjectName ).srcnode() )
+  env.Default( project )
+  
+  
+######################################
+#build solution (default)
+
+if 'CreateMsvsSolution' in env['TOOLS']:
+  solution = env.CreateMsvsSolution(
+    target = translationUnitSolutionName,
+    source = translationUnitProjectName,
+    sourceSolutionDependency = { 
+      translationUnitProjectName : [
+        ""
+        ],
+      },
+    solutionItemArray = [
+      "SConscript",
+      ] + 
+      env[ 'SOLUTION_ITEMS' ],
+    )
+  env.Clean( solution, env.File( translationUnitSolutionName ).srcnode() )  
+  env.Default( solution )
+    
+  
+#end file
+  

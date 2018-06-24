@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="7.10"
+	Name="Greed"
+	ProjectGUID="{7D7A11C1-364A-BD11-509F-29BCD158EC8B}"
+	SccProjectName="Greed"
+	SccLocalPath="."
+	SccProvider="MSSCCI:Perforce SCM"
+	Keyword="Win32Proj">
+	<Platforms>
+		<Platform
+			Name="Win32"/>
+	</Platforms>
+	<Configurations>
+		<Configuration
+			Name="Final|Win32"
+			OutputDirectory="..\..\Build\Win32_x86_Final\Code\Lib"
+			IntermediateDirectory="..\..\Build\Win32_x86_Final\Code\Greed"
+			ConfigurationType="4"
+			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				PreprocessorDefinitions="WIN32;NDEBUG;_LIB"
+				MinimalRebuild="TRUE"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="0"
+				UsePrecompiledHeader="3"
+				WarningLevel="4"
+				DebugInformationFormat="4"
+				WarnAsError="TRUE"
+				AdditionalIncludeDirectories=".."
+				PrecompiledHeaderThrough="Greed/GreedPreCompileHeader.h"
+				
+				/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				OutputFile="$(OutDir)/Greed.exe"
+				LinkIncremental="2"
+				GenerateDebugInformation="FALSE"
+				SubSystem="1"
+				TargetMachine="1"
+
+				/>
+			<Tool
+				Name="VCMIDLTool"/>
+			<Tool
+				Name="VCPostBuildEventTool"/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
+		</Configuration>
+	</Configurations>
+	<References>
+	</References>
+	<Configurations>
+		<Configuration
+			Name="Release|Win32"
+			OutputDirectory="..\..\Build\Win32_x86_Release\Code\Lib"
+			IntermediateDirectory="..\..\Build\Win32_x86_Release\Code\Greed"
+			ConfigurationType="4"
+			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				PreprocessorDefinitions="WIN32;_DEBUG;_LIB"
+				MinimalRebuild="TRUE"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="1"
+				UsePrecompiledHeader="3"
+				WarningLevel="4"
+				DebugInformationFormat="4"
+				WarnAsError="TRUE"
+				AdditionalIncludeDirectories=".."
+				PrecompiledHeaderThrough="Greed/GreedPreCompileHeader.h"
+				
+				/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				OutputFile="$(OutDir)/Greed.exe"
+				LinkIncremental="2"
+				GenerateDebugInformation="TRUE"
+				ProgramDatabaseFile="$(OutDir)/Greed.pdb"
+				SubSystem="1"
+				TargetMachine="1"
+
+				/>
+			<Tool
+				Name="VCMIDLTool"/>
+			<Tool
+				Name="VCPostBuildEventTool"/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
+		</Configuration>
+	</Configurations>
+	<References>
+	</References>
+	<Configurations>
+		<Configuration
+			Name="Debug|Win32"
+			OutputDirectory="..\..\Build\Win32_x86_Debug\Code\Lib"
+			IntermediateDirectory="..\..\Build\Win32_x86_Debug\Code\Greed"
+			ConfigurationType="4"
+			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				PreprocessorDefinitions="WIN32;_DEBUG;_LIB"
+				MinimalRebuild="TRUE"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="1"
+				UsePrecompiledHeader="3"
+				WarningLevel="4"
+				DebugInformationFormat="4"
+				WarnAsError="TRUE"
+				AdditionalIncludeDirectories=".."
+				PrecompiledHeaderThrough="Greed/GreedPreCompileHeader.h"
+				
+				/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				OutputFile="$(OutDir)/Greed.exe"
+				LinkIncremental="2"
+				GenerateDebugInformation="TRUE"
+				ProgramDatabaseFile="$(OutDir)/Greed.pdb"
+				SubSystem="1"
+				TargetMachine="1"
+
+				/>
+			<Tool
+				Name="VCMIDLTool"/>
+			<Tool
+				Name="VCPostBuildEventTool"/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
+		</Configuration>
+	</Configurations>
+	<References>
+	</References>
+	<Files>
+		<Filter
+			Name="GComponent"
+			Filter="">
+			<Filter
+				Name="Private"
+				Filter="">
+				<File
+					RelativePath=".\GComponent\GComponentAnimationTargetData.cpp">
+				</File>
+				<File
+					RelativePath=".\GComponent\GComponentAnimationTargetData.h">
+				</File>
+				<File
+					RelativePath=".\GComponent\GComponentAnimationTargetDataValue.cpp">
+				</File>
+				<File
+					RelativePath=".\GComponent\GComponentAnimationTargetDataValue.h">
+				</File>
+			</Filter>
+
+			<File
+				RelativePath=".\GComponent\GComponentAnimation.cpp">
+			</File>
+			<File
+				RelativePath=".\GComponent\GComponentAnimation.h">
+			</File>
+			<File
+				RelativePath=".\GComponent\GComponentAnimationVisitor.cpp">
+			</File>
+			<File
+				RelativePath=".\GComponent\GComponentAnimationVisitor.h">
+			</File>
+			<File
+				RelativePath=".\GComponent\GComponentDynamicMovementSimple.cpp">
+			</File>
+			<File
+				RelativePath=".\GComponent\GComponentDynamicMovementSimple.h">
+			</File>
+			<File
+				RelativePath=".\GComponent\GComponentPlayerInput.cpp">
+			</File>
+			<File
+				RelativePath=".\GComponent\GComponentPlayerInput.h">
+			</File>
+			<File
+				RelativePath=".\GComponent\GComponentRotation.cpp">
+			</File>
+			<File
+				RelativePath=".\GComponent\GComponentRotation.h">
+			</File>
+			<File
+				RelativePath=".\GComponent\GComponentTilt.cpp">
+			</File>
+			<File
+				RelativePath=".\GComponent\GComponentTilt.h">
+			</File>
+			<File
+				RelativePath=".\GComponent\GComponentTranslation.cpp">
+			</File>
+			<File
+				RelativePath=".\GComponent\GComponentTranslation.h">
+			</File>
+			<File
+				RelativePath=".\GComponent\GComponent_Export.h">
+			</File>
+		</Filter>
+
+		<Filter
+			Name="GParticleEmittor"
+			Filter="">
+			<Filter
+				Name="Private"
+				Filter="">
+				<File
+					RelativePath=".\GParticleEmittor\GParticleEmittorAnimationVisitor.cpp">
+				</File>
+				<File
+					RelativePath=".\GParticleEmittor\GParticleEmittorAnimationVisitor.h">
+				</File>
+				<File
+					RelativePath=".\GParticleEmittor\GParticleEmittorData.cpp">
+				</File>
+				<File
+					RelativePath=".\GParticleEmittor\GParticleEmittorData.h">
+				</File>
+				<File
+					RelativePath=".\GParticleEmittor\GParticleEmittorState.cpp">
+				</File>
+				<File
+					RelativePath=".\GParticleEmittor\GParticleEmittorState.h">
+				</File>
+				<File
+					RelativePath=".\GParticleEmittor\GParticleEmittorStateDataExchange.cpp">
+				</File>
+				<File
+					RelativePath=".\GParticleEmittor\GParticleEmittorStateDataExchange.h">
+				</File>
+				<File
+					RelativePath=".\GParticleEmittor\GParticleEmittorTrait.cpp">
+				</File>
+				<File
+					RelativePath=".\GParticleEmittor\GParticleEmittorTrait.h">
+				</File>
+				<File
+					RelativePath=".\GParticleEmittor\GParticleEmittorType.cpp">
+				</File>
+				<File
+					RelativePath=".\GParticleEmittor\GParticleEmittorType.h">
+				</File>
+			</Filter>
+
+			<File
+				RelativePath=".\GParticleEmittor\GParticleEmittor.cpp">
+			</File>
+			<File
+				RelativePath=".\GParticleEmittor\GParticleEmittor.h">
+			</File>
+			<File
+				RelativePath=".\GParticleEmittor\GParticleEmittor_Export.h">
+			</File>
+		</Filter>
+
+		<Filter
+			Name="GPlayerCharacter"
+			Filter="">
+			<Filter
+				Name="Private"
+				Filter="">
+				<File
+					RelativePath=".\GPlayerCharacter\GPlayerCharacterTrait.cpp">
+				</File>
+				<File
+					RelativePath=".\GPlayerCharacter\GPlayerCharacterTrait.h">
+				</File>
+			</Filter>
+
+			<File
+				RelativePath=".\GPlayerCharacter\GPlayerCharacter.cpp">
+			</File>
+			<File
+				RelativePath=".\GPlayerCharacter\GPlayerCharacter.h">
+			</File>
+			<File
+				RelativePath=".\GPlayerCharacter\GPlayerCharacter_Export.h">
+			</File>
+		</Filter>
+
+		<Filter
+			Name="GUtility"
+			Filter="">
+			<File
+				RelativePath=".\GUtility\GUtility.cpp">
+			</File>
+			<File
+				RelativePath=".\GUtility\GUtility.h">
+			</File>
+			<File
+				RelativePath=".\GUtility\GUtility_Export.h">
+			</File>
+		</Filter>
+
+		<File
+			RelativePath=".\GreedPreCompileHeader.h">
+		</File>
+		<File
+			RelativePath=".\Greed_Export.h">
+		</File>
+		<File
+			RelativePath=".\SConscript">
+		</File>
+		<File
+			RelativePath=".\GreedPreCompileHeader.cpp">
+			<FileConfiguration
+				Name="Final|Win32">
+				<Tool
+					Name="VCCLCompilerTool"
+					UsePrecompiledHeader="1"
+					PrecompiledHeaderThrough="Greed/GreedPreCompileHeader.h"/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release|Win32">
+				<Tool
+					Name="VCCLCompilerTool"
+					UsePrecompiledHeader="1"
+					PrecompiledHeaderThrough="Greed/GreedPreCompileHeader.h"/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug|Win32">
+				<Tool
+					Name="VCCLCompilerTool"
+					UsePrecompiledHeader="1"
+					PrecompiledHeaderThrough="Greed/GreedPreCompileHeader.h"/>
+			</FileConfiguration>
+		</File>
+	</Files>
+	<Globals>
+	</Globals>
+</VisualStudioProject>
+<!-- SCons Data:
+Y2NvcHlfcmVnCl9yZWNvbnN0cnVjdG9yCnEAKGNDcmVhdGVNc3ZzUHJvamVjdERhdGEKQ3JlYXRl
+TXN2c1Byb2plY3REYXRhQ2xhc3MKcQFjX19idWlsdGluX18Kb2JqZWN0CnECTnRxA1JxBH1xBShV
+C3Byb2plY3RUeXBlcQZVCVdpbjMyUHJvanEHVRFwcmVjb21waWxlVGhyb3VnaHEIVR1HcmVlZC9H
+cmVlZFByZUNvbXBpbGVIZWFkZXIuaHEJVRR1c2VQcmVjb21waWxlZEhlYWRlcnEKSwNVDnByZWNv
+bXBpbGVGaWxlcQtVGUdyZWVkUHJlQ29tcGlsZUhlYWRlci5jcHBxDFUMcGxhdGZvcm1OYW1lcQ1V
+BVdpbjMycQ5VEWhhc1ByZWNvbXBpbGVGaWxlcQ9JMDEKVQlkYXRhQXJyYXlxEF1xEShoAChjQ3Jl
+YXRlTXN2c1Byb2plY3REYXRhCkNyZWF0ZU1zdnNQcm9qZWN0RGF0YUNsYXNzRGF0YQpxEmgCTnRx
+E1JxFH1xFShVCXN1YlN5c3RlbXEWSwFVDGRlYnVnU3ltYm9sc3EXVQVGQUxTRXEYVR5kZXRlY3Q2
+NEJpdFBvcnRhYmlsaXR5UHJvYmxlbXNxGUkwMApVCmNvbmZpZ05hbWVxGlULRmluYWx8V2luMzJx
+G1UcYWRkaXRpb25hbEluY2x1ZGVEaXJlY3Rvcmllc3EcVQIuLnEdVQlidWlsZEJhc2VxHlUmLi5c
+Li5cQnVpbGRcV2luMzJfeDg2X0ZpbmFsXENvZGVcR3JlZWRxH1ULd2FybkFzRXJyb3JxIEkwMQpV
+A3BkYnEhVQBxIlUMZGVmaW5lU3RyaW5ncSNVEVdJTjMyO05ERUJVRztfTElCcSRVEWNvbmZpZ3Vy
+YXRpb25UeXBlcSVLBFUMd2FybmluZ0xldmVscSZLBFUOcnVudGltZUxpYnJhcnlxJ0sAVQlvdXRw
+dXREaXJxKFUkLi5cLi5cQnVpbGRcV2luMzJfeDg2X0ZpbmFsXENvZGVcTGlicSlVFmFkZGl0aW9u
+YWxEZXBlbmRlbmNpZXNxKmgiVRxhZGRpdGlvbmFsTGlicmFyeURpcmVjdG9yaWVzcStoInViaAAo
+aBJoAk50cSxScS19cS4oVQlzdWJTeXN0ZW1xL0sBVQxkZWJ1Z1N5bWJvbHNxMFUEVFJVRXExVR5k
+ZXRlY3Q2NEJpdFBvcnRhYmlsaXR5UHJvYmxlbXNxMkkwMApVCmNvbmZpZ05hbWVxM1UNUmVsZWFz
+ZXxXaW4zMnE0VRxhZGRpdGlvbmFsSW5jbHVkZURpcmVjdG9yaWVzcTVVAi4ucTZVCWJ1aWxkQmFz
+ZXE3VSguLlwuLlxCdWlsZFxXaW4zMl94ODZfUmVsZWFzZVxDb2RlXEdyZWVkcThVA3BkYnE5VS4K
+CQkJCVByb2dyYW1EYXRhYmFzZUZpbGU9IiQoT3V0RGlyKS9HcmVlZC5wZGIicTpVC3dhcm5Bc0Vy
+cm9ycTtJMDEKVQxkZWZpbmVTdHJpbmdxPFURV0lOMzI7X0RFQlVHO19MSUJxPVURY29uZmlndXJh
+dGlvblR5cGVxPksEVQx3YXJuaW5nTGV2ZWxxP0sEVQ5ydW50aW1lTGlicmFyeXFASwFVCW91dHB1
+dERpcnFBVSYuLlwuLlxCdWlsZFxXaW4zMl94ODZfUmVsZWFzZVxDb2RlXExpYnFCVRZhZGRpdGlv
+bmFsRGVwZW5kZW5jaWVzcUNoIlUcYWRkaXRpb25hbExpYnJhcnlEaXJlY3Rvcmllc3FEaCJ1YmgA
+KGgSaAJOdHFFUnFGfXFHKFUJc3ViU3lzdGVtcUhLAVUMZGVidWdTeW1ib2xzcUlVBFRSVUVxSlUe
+ZGV0ZWN0NjRCaXRQb3J0YWJpbGl0eVByb2JsZW1zcUtJMDAKVQpjb25maWdOYW1lcUxVC0RlYnVn
+fFdpbjMycU1VHGFkZGl0aW9uYWxJbmNsdWRlRGlyZWN0b3JpZXNxTlUCLi5xT1UJYnVpbGRCYXNl
+cVBVJi4uXC4uXEJ1aWxkXFdpbjMyX3g4Nl9EZWJ1Z1xDb2RlXEdyZWVkcVFVA3BkYnFSVS4KCQkJ
+CVByb2dyYW1EYXRhYmFzZUZpbGU9IiQoT3V0RGlyKS9HcmVlZC5wZGIicVNVC3dhcm5Bc0Vycm9y
+cVRJMDEKVQxkZWZpbmVTdHJpbmdxVVURV0lOMzI7X0RFQlVHO19MSUJxVlURY29uZmlndXJhdGlv
+blR5cGVxV0sEVQx3YXJuaW5nTGV2ZWxxWEsEVQ5ydW50aW1lTGlicmFyeXFZSwFVCW91dHB1dERp
+cnFaVSQuLlwuLlxCdWlsZFxXaW4zMl94ODZfRGVidWdcQ29kZVxMaWJxW1UWYWRkaXRpb25hbERl
+cGVuZGVuY2llc3FcaCJVHGFkZGl0aW9uYWxMaWJyYXJ5RGlyZWN0b3JpZXNxXWgidWJldWIu
+-->

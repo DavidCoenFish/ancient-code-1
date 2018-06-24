@@ -1,0 +1,143 @@
+#file: Coretech/Code/Lust/SConscript
+
+
+###########################################
+# import
+
+import os
+
+Import( "env" )
+env = env.Clone()
+from extras.extras_dictionary import GetArrayFromDictionary
+
+###########################################
+# invoke children sconscripts
+
+# call children SConscript files
+env.SConscript(
+  [ 
+    'LTestbed/SConscript',
+    ],
+  exports = {
+    "env" : env
+    },
+  )
+  
+
+###########################################
+# local varaibles
+
+translationUnitName = 'Lust'
+translationUnitProjectName = translationUnitName + env['MSVSPROJECTSUFFIX']
+translationUnitSolutionName = translationUnitName + env['MSVSSOLUTIONSUFFIX']
+translationUnitTargetName = translationUnitName + '.lib'
+
+#src files  
+sourceFileDict = {  
+  'LTranslation' : {
+    '' : [
+      'LTranslation/LTranslation_Export.h',
+      'LTranslation/LTranslationComponentForceSum.cpp',
+      'LTranslation/LTranslationComponentForceSum.h',
+      'LTranslation/LTranslationComponentVelocity.cpp',
+      'LTranslation/LTranslationComponentVelocity.h',
+      'LTranslation/LTranslationComponent.cpp',
+      'LTranslation/LTranslationComponent.h',
+      ],
+    }, 
+  'LSpring' : {
+    '' : [
+      'LSpring/LSpring.cpp',
+      'LSpring/LSpring.h',
+      'LSpring/LSpring_Export.h',
+      'LSpring/LSpringParam.cpp',
+      'LSpring/LSpringParam.h',
+      'LSpring/LSpringUtility.cpp',
+      'LSpring/LSpringUtility.h',
+      'LSpring/LSpringTrait.cpp',
+      'LSpring/LSpringTrait.h',
+      ],
+    },    
+  '' : [
+    'Lust_Export.h',
+    'LustPreCompileHeader.h',
+    #'LustPreCompileHeader.cpp', DON'T ADD PCH YET
+    'SConscript'
+    ],
+  }
+  
+######################################
+#adjust our env
+
+if env.get( 'TARGET_DEBUG', False ):
+  env[ 'PDB' ] = translationUnitName + '.pdb'
+
+######################################
+#build exe alias( 'build' )
+
+build = env.BuildMsvs(
+  target = env.File( '${BUILD_DIR}/Code/Lib/' + translationUnitName + '.lib' ),
+  source = [ 
+    translationUnitSolutionName,
+    ] + 
+    GetArrayFromDictionary( sourceFileDict ),  
+  sourceFile = env.File( os.path.join( '#Code', 'Lust', translationUnitSolutionName ) ).get_abspath(),
+  projectName = translationUnitName,
+  )  
+env.Alias( 'build', build )
+
+######################################
+#build project (default)
+
+if 'CreateMsvsProject' in env['TOOLS']:
+  project = env.CreateMsvsProject(
+    target = translationUnitProjectName,
+    source = [
+      env.File( '${CODE_DIR}/Lust/Sconscript' ), #list script as project src so project updates on script changes
+    ], #must specify source else you get extention mangled targets as source
+    sourceProjectFiles = sourceFileDict,
+    additionalIncludeDirectories = [
+      "..",
+      ],
+    projectType = 'Win32Proj',
+    buildBase = os.path.join( "..", "..", env.Dir( '.' ).path ),
+    outputDir = os.path.join( "..", "..", env.Dir( '${BUILD_DIR}/Code/Lib' ).path ),
+    buildLib = True,
+    warnAsError = True,
+    multiThread = True,
+    precompileFile = "LustPreCompileHeader.cpp",
+    precompileThrough = "Lust/LustPreCompileHeader.h",
+    #warningLevel = 3,
+    )
+  env.Clean( project, env.File( translationUnitProjectName ).srcnode() )
+  env.Default( project )
+  
+  
+######################################
+#build solution (default)
+
+if 'CreateMsvsSolution' in env['TOOLS']:
+  solution = env.CreateMsvsSolution(
+    target = translationUnitSolutionName,
+    source = translationUnitProjectName,
+    sourceSolutionDependency = { 
+      translationUnitProjectName : [
+        ],
+      "..\\Hubris\\Hubris.vcproj" : [
+        ],
+      "..\\Pride\\Pride.vcproj" : [
+        ],
+      },
+    solutionItemArray = [
+      "SConscript",
+      "..\\..\\SolutionItems\\code_standard.txt",   
+      "..\\..\\SolutionItems\\todo.txt",   
+      "..\\..\\SolutionItems\\plan.txt",   
+      ],
+    )
+  env.Clean( solution, env.File( translationUnitSolutionName ).srcnode() )  
+  env.Default( solution )
+    
+  
+#end file
+  

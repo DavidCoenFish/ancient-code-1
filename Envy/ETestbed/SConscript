@@ -1,0 +1,151 @@
+#file: Coretech/Code/Envy/ETestbed/SConscript
+
+
+###########################################
+# import
+
+import os
+from extras.extras_dictionary import GetArrayFromDictionary
+
+Import( "env" )
+env = env.Clone()
+
+
+###########################################
+# local varaibles
+
+translationUnitName = 'ETestbed'
+translationUnitProjectName = translationUnitName + env['MSVSPROJECTSUFFIX']
+translationUnitSolutionName = translationUnitName + env['MSVSSOLUTIONSUFFIX']
+
+#src files  
+sourceFileDict = {
+  'Private' : [
+    'ETestbedCommandLine.cpp',
+    'ETestbedCommandLine.h',
+    'ETestbedDataStore.cpp',
+    'ETestbedDataStore.h',
+    'ETestbedJana.cpp',
+    'ETestbedJana.h',
+    'ETestbedMemento.cpp',
+    'ETestbedMemento.h',
+    'ETestbedRecursiveDataStore.cpp',
+    'ETestbedRecursiveDataStore.h',
+    'ETestbedResourceIdManager.cpp',
+    'ETestbedResourceIdManager.h',
+    'ETestbedStateMachine.cpp',
+    'ETestbedStateMachine.h',
+    'ETestbedStateMachineSimple.cpp',
+    'ETestbedStateMachineSimple.h',
+    'ETestbedStringTable.cpp',
+    'ETestbedStringTable.h',
+    'ETestbedTanya.cpp',
+    'ETestbedTanya.h',
+    ],
+  '' : [
+    'ETestbed_Import.h',
+    'ETestbed.cpp',
+    'ETestbed.h',
+    'SConscript'
+    ],
+  }
+
+######################################
+#adjust our env
+
+if env.get( 'TARGET_DEBUG', False ):
+  env[ 'PDB' ] = translationUnitName + '.pdb'
+
+######################################
+#build exe alias( 'build' )
+
+if 'BuildMsvs' in env['TOOLS']:
+  build = env.BuildMsvs(
+    target = translationUnitName + '.exe',
+    source = [ 
+      translationUnitSolutionName,
+      env.File( "${BUILD_DIR}/Code/Lib/Hubris.Lib" ),
+      env.File( "${BUILD_DIR}/Code/Lib/Envy.Lib" ),  
+      ] + 
+      GetArrayFromDictionary( sourceFileDict ),
+    sourceFile = env.File( '#Code/Envy/ETestbed/' + translationUnitSolutionName ),
+    projectName = translationUnitName,
+    )  
+  env.Alias( 'build', build )
+
+######################################
+#run testbed exe alias( 'testbed' )
+
+if 'RunTestbed' in env['TOOLS']:
+  testbed = env.RunTestbed(
+    target = translationUnitName + '.txt',
+    source = translationUnitName + '.exe',
+    )  
+  env.Alias( 'testbed', testbed )
+
+######################################
+#build project
+
+if 'CreateMsvsProject' in env['TOOLS']:
+  project = env.CreateMsvsProject(
+    target = translationUnitProjectName,
+    source = [
+      env.File( '${CODE_DIR}/Envy/ETestbed/Sconscript' ),
+      ],         
+    sourceProjectFiles = sourceFileDict,
+    additionalIncludeDirectories = [ 
+      "..\\..\\", 
+      ],    
+    additionalDependencies = [ 
+      "Hubris.lib", 
+      "Envy.lib",
+      "TinyXml.lib",
+      ],
+    additionalLibraryDirectories = [ 
+      env.Dir( '${BUILD_DIR}/Code/Lib' ).abspath,
+      env.Dir( '${BUILD_DIR}/ThirdParty/Lib' ).abspath,
+      ],
+    projectType = 'Win32Proj',
+    buildConsole = True,
+    multiThread = True,    
+    buildBase = os.path.join( "..", "..", "..", env.Dir( '.' ).path ),
+    )
+  Clean( project, env.File( translationUnitProjectName ).srcnode() )
+  env.Default( project )
+
+######################################
+#build solution (default)
+
+if 'CreateMsvsSolution' in env['TOOLS']:
+  solution = env.CreateMsvsSolution(
+    target = translationUnitSolutionName,
+    source = [
+      translationUnitProjectName,
+      ],
+    sourceSolutionDependency = { 
+      translationUnitProjectName : [
+        "Hubris.vcproj",
+        "Envy.vcproj",
+        ],
+
+      "..\\..\\Hubris\\Hubris.vcproj" : [
+        "TinyXml.vcproj",      
+        ],
+        
+      "..\\Envy.vcproj" : [
+        ],
+
+      "..\\..\\..\\ThirdParty\\TinyXml\\TinyXml.vcproj" : [
+        ],                
+      },
+    solutionItemArray = [
+      "SConscript",
+      "..\\..\\..\\SolutionItems\\code_standard.txt",   
+      "..\\..\\..\\SolutionItems\\todo.txt",   
+      "..\\..\\..\\SolutionItems\\plan.txt",      
+      ],      
+    )
+  env.Clean( solution, env.File( translationUnitSolutionName ).srcnode() )  
+  env.Default( solution )
+        
+#end file

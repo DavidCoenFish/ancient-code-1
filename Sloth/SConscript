@@ -1,0 +1,351 @@
+#file: Coretech/Code/Sloth/SConscript
+
+
+###########################################
+# import
+
+import os
+
+Import( "env" )
+env = env.Clone()
+from extras.extras_dictionary import GetArrayFromDictionary
+
+###########################################
+# invoke children sconscripts
+
+# call children SConscript files
+env.SConscript(
+  [ 
+    'STestbed/SConscript',
+    'STestbedApplication/SConscript',
+    ],
+  exports = {
+    "env" : env
+    },
+  )
+  
+
+###########################################
+# local varaibles
+
+translationUnitName = 'Sloth'
+translationUnitProjectName = translationUnitName + env['MSVSPROJECTSUFFIX']
+translationUnitSolutionName = translationUnitName + env['MSVSSOLUTIONSUFFIX']
+translationUnitTargetName = translationUnitName + '.lib'
+
+#src files  
+sourceFileDict = {
+  'SApplication' : {
+    '' : [
+      'SApplication/SApplication.cpp',
+      'SApplication/SApplication.h',  
+      'SApplication/SApplication_Export.h',
+      ],
+    },    
+  'SConsole' : {
+    'Private' : [
+      'SConsole/SConsoleImplementation.cpp',
+      'SConsole/SConsoleImplementation.h',  
+      ],
+    '' : [
+      'SConsole/SConsole.cpp',
+      'SConsole/SConsole.h',  
+      'SConsole/SConsole_Export.h',
+      ],
+    },  
+  'SCursor' : {
+    'Private' : [
+      'SCursor/SCursorImplementation.cpp',
+      'SCursor/SCursorImplementation.h',  
+      ],
+    '' : [
+      'SCursor/SCursor.cpp',
+      'SCursor/SCursor.h',  
+      'SCursor/SCursor_Export.h',
+      'SCursor/SCursorParam.cpp',
+      'SCursor/SCursorParam.h',  
+      ],
+    }, 
+  'SComponent' : {
+    'Private' : [
+      'SComponent/SComponentCameraFlyImplementation.h',
+      'SComponent/SComponentCameraFlyImplementation.cpp',
+      'SComponent/SComponentCameraTargetImplementation.h',
+      'SComponent/SComponentCameraTargetImplementation.cpp',
+      'SComponent/SComponentDeltaImplementation.h',
+      'SComponent/SComponentDeltaImplementation.cpp',
+      'SComponent/SComponentFPSImplementation.h',
+      'SComponent/SComponentFPSImplementation.cpp',
+      'SComponent/SComponentSpriteImplementation.h',
+      'SComponent/SComponentSpriteImplementation.cpp',
+      'SComponent/SComponentSpriteData.cpp',
+      'SComponent/SComponentSpriteData.h',  
+      'SComponent/SComponentSpriteInstanceData.cpp',
+      'SComponent/SComponentSpriteInstanceData.h',  
+      'SComponent/SComponentSpriteFixedFontImplementation.cpp',
+      'SComponent/SComponentSpriteFixedFontImplementation.h',
+      'SComponent/SComponentSpriteFixedFontData.cpp',
+      'SComponent/SComponentSpriteFixedFontData.h',
+      ],
+    '' : [
+      'SComponent/SComponent_Export.h', 
+      'SComponent/SComponentCameraFly.cpp',
+      'SComponent/SComponentCameraFly.h',  
+      'SComponent/SComponentCameraTarget.cpp',
+      'SComponent/SComponentCameraTarget.h',  
+      'SComponent/SComponentCameraTargetDistanceKeyData.cpp',
+      'SComponent/SComponentCameraTargetDistanceKeyData.h',  
+      'SComponent/SComponentDelta.cpp',
+      'SComponent/SComponentDelta.h',  
+      'SComponent/SComponentFPS.cpp',
+      'SComponent/SComponentFPS.h',  
+      'SComponent/SComponentSprite.cpp',
+      'SComponent/SComponentSprite.h',
+      'SComponent/SComponentSpriteFixedFont.cpp',
+      'SComponent/SComponentSpriteFixedFont.h',
+      ],
+    },
+  'SIcon' : {
+    'Private' : [
+      'SIcon/SIconImplementation.cpp',
+      'SIcon/SIconImplementation.h',  
+      ],
+    '' : [
+      'SIcon/SIcon.cpp',
+      'SIcon/SIcon.h',  
+      'SIcon/SIcon_Export.h',
+      'SIcon/SIconParam.cpp',
+      'SIcon/SIconParam.h',  
+      ],
+    }, 
+  'SInput' : {
+    'Private' : [
+      'SInput/SInputItemData.cpp',
+      'SInput/SInputItemData.h',  
+      'SInput/SInputImplementation.cpp',
+      'SInput/SInputImplementation.h',  
+      'SInput/SInputKeyboard.cpp',
+      'SInput/SInputKeyboard.h',
+      'SInput/SInputMouse.cpp',
+      'SInput/SInputMouse.h',
+      ],
+    '' : [
+      'SInput/SInput.cpp',
+      'SInput/SInput.h',  
+      'SInput/SInput_Export.h',
+      'SInput/SInputParam.cpp',
+      'SInput/SInputParam.h',  
+      ],
+    },         
+  'SInterface' : {
+    '' : [
+      'SInterface/SInterfaceImage.cpp',
+      'SInterface/SInterfaceImage.h',  
+      'SInterface/SInterfaceRender.cpp',
+      'SInterface/SInterfaceRender.h',  
+      'SInterface/SInterface_Export.h',
+      ],
+    },  
+  'SLight' : {
+    '' : [
+      'SLight/SLight.cpp',
+      'SLight/SLight.h',  
+      'SLight/SLight_Export.h',
+      ],
+    },  
+  'SMaterial' : {
+    '' : [
+      'SMaterial/SMaterial.cpp',
+      'SMaterial/SMaterial.h',  
+      'SMaterial/SMaterial_Export.h',
+      'SMaterial/SMaterialStage.cpp',
+      'SMaterial/SMaterialStage.h',  
+      'SMaterial/SMaterialGeometryStage.cpp',
+      'SMaterial/SMaterialGeometryStage.h',
+      'SMaterial/SMaterialStageShader.cpp',
+      'SMaterial/SMaterialStageShader.h',
+      'SMaterial/SMaterialStageShaderData.cpp',
+      'SMaterial/SMaterialStageShaderData.h',
+      'SMaterial/SMaterialTrait.cpp',
+      'SMaterial/SMaterialTrait.h',
+      ],
+    }, 
+  'SOpenGl' : {
+    'Private' : [
+      'SOpenGl/SOpenGlBox.cpp',
+      'SOpenGl/SOpenGlBox.h',  
+      'SOpenGl/SOpenGlGeometry.cpp',
+      'SOpenGl/SOpenGlGeometry.h',  
+      'SOpenGl/SOpenGlGeometryObject.cpp',
+      'SOpenGl/SOpenGlGeometryObject.h',   
+      'SOpenGl/SOpenGlGeometryObjectData.cpp',
+      'SOpenGl/SOpenGlGeometryObjectData.h',
+      'SOpenGl/SOpenGlGeometryObjectTopology.cpp',
+      'SOpenGl/SOpenGlGeometryObjectTopology.h',
+      'SOpenGl/SOpenGlInfo.cpp',
+      'SOpenGl/SOpenGlInfo.h',  
+      'SOpenGl/SOpenGlShaderManager.cpp',
+      'SOpenGl/SOpenGlShaderManager.h',
+      'SOpenGl/SOpenGlShaderManagerData.cpp',
+      'SOpenGl/SOpenGlShaderManagerData.h',
+      'SOpenGl/SOpenGlSphere.cpp',
+      'SOpenGl/SOpenGlSphere.h',  
+      'SOpenGl/SOpenGlSprite.cpp',
+      'SOpenGl/SOpenGlSprite.h',  
+      ],
+    '' : [
+      'SOpenGl/SOpenGl.cpp',
+      'SOpenGl/SOpenGl.h',  
+      'SOpenGl/SOpenGl_Export.h',
+      ],  
+    },  
+  'STextureAlias' : {
+    'Private' : [
+      'STextureAlias/STextureAliasData.cpp',
+      'STextureAlias/STextureAliasData.h',
+      'STextureAlias/STextureAliasImplementation.cpp',
+      'STextureAlias/STextureAliasImplementation.h',  
+      ],
+    '' : [
+      'STextureAlias/STextureAlias.cpp',
+      'STextureAlias/STextureAlias.h',  
+      'STextureAlias/STextureAlias_Export.h',
+      ],
+    },     
+  'STextureStore' : {
+    'Private' : [
+      'STextureStore/STextureStoreImplementation.cpp',
+      'STextureStore/STextureStoreImplementation.h',  
+      ],
+    '' : [
+      'STextureStore/STextureStore.cpp',
+      'STextureStore/STextureStore.h',  
+      'STextureStore/STextureStore_Export.h',
+      ],
+    }, 
+  'SWindow' : {
+    'Private' : [
+      'SWindow/SWindowImageInterface.cpp',
+      'SWindow/SWindowImageInterface.h',  
+      'SWindow/SWindowImplementationBase.cpp',
+      'SWindow/SWindowImplementationBase.h',
+      'SWindow/SWindowImplementationImage.cpp',
+      'SWindow/SWindowImplementationImage.h',
+      'SWindow/SWindowImplementationRender.cpp',
+      'SWindow/SWindowImplementationRender.h',
+      'SWindow/SWindowImplementationRenderDirectX.cpp',
+      'SWindow/SWindowImplementationRenderDirectX.h',
+      'SWindow/SWindowImplementationRenderOpenGl.cpp',
+      'SWindow/SWindowImplementationRenderOpenGl.h',
+      'SWindow/SWindowComponentDebugText.cpp',
+      'SWindow/SWindowComponentDebugText.h',
+      'SWindow/SWindowComponentDebugTextData.cpp',
+      'SWindow/SWindowComponentDebugTextData.h',
+      ],
+    '' : [
+      'SWindow/SWindowBase.cpp',
+      'SWindow/SWindowBase.h',  
+      'SWindow/SWindowImage.cpp',
+      'SWindow/SWindowImage.h',  
+      'SWindow/SWindowRender.cpp',
+      'SWindow/SWindowRender.h',  
+      'SWindow/SWindowParam.cpp',
+      'SWindow/SWindowParam.h',  
+      'SWindow/SWindowParamDirectX.cpp',
+      'SWindow/SWindowParamDirectX.h',  
+      'SWindow/SWindowParamOpenGl.cpp',
+      'SWindow/SWindowParamOpenGl.h',   
+      'SWindow/SWindow_Export.h',
+      ],
+    },       
+  '' : [
+    'Sloth_Export.h',
+    'SlothPreCompileHeader.h',
+    #'SlothPreCompileHeader.cpp', DON'T ADD PCH YET
+    'SConscript'
+    ],
+  }
+  
+######################################
+#adjust our env
+
+#env.Append( CCFLAGS = '/EHsc' )
+#env.AppendUnique( TARGET_DEFINES = [ ( "_HAS_EXCEPTIONS", "1" ) ] )
+
+#env.AppendUnique( TARGET_DEFINES = [ 'GL_GLEXT_PROTOTYPES' ] )
+
+
+if env.get( 'TARGET_DEBUG', False ):
+  env[ 'PDB' ] = translationUnitName + '.pdb'
+
+######################################
+#build exe alias( 'build' )
+
+build = env.BuildMsvs(
+  target = env.File( '${BUILD_DIR}/Code/Lib/' + translationUnitName + '.lib' ),
+  source = [ 
+    translationUnitSolutionName,
+    ] + 
+    GetArrayFromDictionary( sourceFileDict ),  
+  sourceFile = env.File( os.path.join( '#Code', 'Sloth', translationUnitSolutionName ) ).get_abspath(),
+  projectName = translationUnitName,
+  )  
+env.Alias( 'build', build )
+
+
+######################################
+#build project (default)
+
+if 'CreateMsvsProject' in env['TOOLS']:
+  project = env.CreateMsvsProject(
+    target = translationUnitProjectName,
+    source = [
+      env.File( '${CODE_DIR}/Sloth/Sconscript' ), #list script as project src so project updates on script changes
+    ], #must specify source else you get extention mangled targets as source
+    sourceProjectFiles = sourceFileDict,
+    additionalIncludeDirectories = [
+      "..",
+      "../../ThirdParty",
+      ],
+    projectType = 'Win32Proj',
+    buildBase = os.path.join( "..", "..", env.Dir( '.' ).path ),
+    outputDir = os.path.join( "..", "..", env.Dir( '${BUILD_DIR}/Code/Lib' ).path ),
+    buildLib = True,
+    warnAsError = True,
+    multiThread = True,
+    precompileFile = "SlothPreCompileHeader.cpp",
+    precompileThrough = "Sloth/SlothPreCompileHeader.h",
+    #warningLevel = 3,
+    )
+  env.Clean( project, env.File( translationUnitProjectName ).srcnode() )
+  env.Default( project )
+  
+  
+######################################
+#build solution (default)
+
+if 'CreateMsvsSolution' in env['TOOLS']:
+  solution = env.CreateMsvsSolution(
+    target = translationUnitSolutionName,
+    source = translationUnitProjectName,
+    sourceSolutionDependency = { 
+      translationUnitProjectName : [
+        ],
+      "..\\Hubris\\Hubris.vcproj" : [
+        ],
+      "..\\Pride\\Pride.vcproj" : [
+        ],
+      },
+    solutionItemArray = [
+      "SConscript",
+      "..\\..\\SolutionItems\\code_standard.txt",   
+      "..\\..\\SolutionItems\\todo.txt",   
+      "..\\..\\SolutionItems\\plan.txt",   
+      ],
+    )
+  env.Clean( solution, env.File( translationUnitSolutionName ).srcnode() )  
+  env.Default( solution )
+    
+  
+#end file
+  

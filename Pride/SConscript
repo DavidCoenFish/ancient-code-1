@@ -1,0 +1,420 @@
+#file: Coretech/Code/Pride/SConscript
+
+
+###########################################
+# import
+
+import os
+
+Import( "env" )
+env = env.Clone()
+from extras.extras_dictionary import GetArrayFromDictionary
+
+###########################################
+# invoke children sconscripts
+
+# call children SConscript files
+env.SConscript(
+  [ 'PTestbed/SConscript',
+    ],
+  exports = {
+    "env" : env
+    },
+  )
+  
+
+###########################################
+# local varaibles
+
+translationUnitName = 'Pride'
+translationUnitProjectName = translationUnitName + env['MSVSPROJECTSUFFIX']
+translationUnitSolutionName = translationUnitName + env['MSVSSOLUTIONSUFFIX']
+translationUnitTargetName = translationUnitName + '.lib'
+
+#src files  
+sourceFileDict = {
+  'PAnimation' : {
+    'Private' : [
+      'PAnimation/PAnimationImplementation.cpp',
+      'PAnimation/PAnimationImplementation.h',  
+      'PAnimation/PAnimationData.cpp',
+      'PAnimation/PAnimationData.h',
+      'PAnimation/PAnimationDataBase.cpp',
+      'PAnimation/PAnimationDataBase.h',
+      ],
+    '' : [
+      'PAnimation/PAnimation.cpp',
+      'PAnimation/PAnimation.h',  
+      'PAnimation/PAnimation_Export.h',
+      'PAnimation/PAnimationExtra.cpp',
+      'PAnimation/PAnimationExtra.h',    
+      'PAnimation/PAnimationKey.cpp',
+      'PAnimation/PAnimationKey.h',    
+      'PAnimation/PAnimationUtility.cpp',
+      'PAnimation/PAnimationUtility.h',
+      ],
+    },    
+  'PBounds' : {
+    '' : [
+      'PBounds/PBounds.cpp',
+      'PBounds/PBounds.h',
+      'PBounds/PBounds_Export.h',
+      'PBounds/PBoundsTrait.cpp',
+      'PBounds/PBoundsTrait.h',
+      'PBounds/PBoundsUtility.cpp',
+      'PBounds/PBoundsUtility.h',
+      'PBounds/PBoundsOperator.cpp',
+      'PBounds/PBoundsOperator.h',
+      ],
+    },
+  'PCamera' : {
+    '' : [
+      'PCamera/PCamera.cpp',
+      'PCamera/PCamera.h',
+      'PCamera/PCamera_Export.h',
+      'PCamera/PCameraTrait.cpp',
+      'PCamera/PCameraTrait.h',
+      'PCamera/PCameraUtility.cpp',
+      'PCamera/PCameraUtility.h',
+      ],
+    },
+  'PColour' : {
+    '' : [
+      'PColour/PColour.cpp',
+      'PColour/PColour.h',
+      'PColour/PColour_Export.h',
+      'PColour/PColourConvertor.cpp',
+      'PColour/PColourConvertor.h',
+      'PColour/PColourMathUtility.cpp',
+      'PColour/PColourMathUtility.h',
+      'PColour/PColourOperator.cpp',
+      'PColour/PColourOperator.h',
+      'PColour/PColourTrait.cpp',
+      'PColour/PColourTrait.h',
+      'PColour/PColourVariables.cpp',
+      'PColour/PColourVariables.h',
+      ],
+    },
+  'PConvexHull' : {
+    'Private' : [
+      'PConvexHull/PConvexHullEdge.cpp',
+      'PConvexHull/PConvexHullEdge.h',
+      'PConvexHull/PConvexHullEdgeData.cpp',
+      'PConvexHull/PConvexHullEdgeData.h',
+      'PConvexHull/PConvexHullEdgeUtility.cpp',
+      'PConvexHull/PConvexHullEdgeUtility.h',
+      'PConvexHull/PConvexHullImplementation.cpp',
+      'PConvexHull/PConvexHullImplementation.h',
+      ],
+    '' : [
+      'PConvexHull/PConvexHull.cpp',
+      'PConvexHull/PConvexHull.h',
+      'PConvexHull/PConvexHull_Export.h',
+      'PConvexHull/PConvexHullUtility.cpp',
+      'PConvexHull/PConvexHullUtility.h',
+      'PConvexHull/PConvexHullTrait.cpp',
+      'PConvexHull/PConvexHullTrait.h',
+      ],
+    },
+  'PConvexHullGenerate' : {
+    'Private' : [
+      'PConvexHullGenerate/PConvexHullGenerateUtilityDataTriangle.cpp',
+      'PConvexHullGenerate/PConvexHullGenerateUtilityDataTriangle.h',
+      'PConvexHullGenerate/PConvexHullGenerateUtilityDataVertexPool.cpp',
+      'PConvexHullGenerate/PConvexHullGenerateUtilityDataVertexPool.h',
+      'PConvexHullGenerate/PConvexHullGenerateUtilityPlaneReduce.cpp',
+      'PConvexHullGenerate/PConvexHullGenerateUtilityPlaneReduce.h',
+      'PConvexHullGenerate/PConvexHullGenerateUtilityPlaneReduceData.cpp',
+      'PConvexHullGenerate/PConvexHullGenerateUtilityPlaneReduceData.h',
+      'PConvexHullGenerate/PConvexHullGenerateUtilityPlaneReduceLine.cpp',
+      'PConvexHullGenerate/PConvexHullGenerateUtilityPlaneReduceLine.h',
+      'PConvexHullGenerate/PConvexHullGenerateUtilityReduce.cpp',
+      'PConvexHullGenerate/PConvexHullGenerateUtilityReduce.h',
+      'PConvexHullGenerate/PConvexHullGenerateUtilityReduceData.cpp',
+      'PConvexHullGenerate/PConvexHullGenerateUtilityReduceData.h',
+      'PConvexHullGenerate/PConvexHullGenerateUtilitySegment.cpp',
+      'PConvexHullGenerate/PConvexHullGenerateUtilitySegment.h',
+      ],
+    '' : [
+      'PConvexHullGenerate/PConvexHullGenerate_Export.h',
+      'PConvexHullGenerate/PConvexHullGenerateUtility.cpp',
+      'PConvexHullGenerate/PConvexHullGenerateUtility.h',
+      ],
+    },
+  'PGeometry' : {
+    'Private' : [
+      'PGeometry/PGeometryImplementation.cpp',
+      'PGeometry/PGeometryImplementation.h',
+      'PGeometry/PGeometryStoreInterface.cpp',
+      'PGeometry/PGeometryStoreInterface.h',
+      'PGeometry/PGeometryTypeSignatureData.cpp',
+      'PGeometry/PGeometryTypeSignatureData.h',
+      'PGeometry/PGeometryTypeSignatureTopologyData.cpp',
+      'PGeometry/PGeometryTypeSignatureTopologyData.h',
+      'PGeometry/PGeometryTypeSignatureImplementation.cpp',
+      'PGeometry/PGeometryTypeSignatureImplementation.h',
+      'PGeometry/PGeometryVertexImplementation.cpp',
+      'PGeometry/PGeometryVertexImplementation.h',
+      'PGeometry/PGeometryVertexVariant.cpp',
+      'PGeometry/PGeometryVertexVariant.h',
+      ],
+    '' : [
+      'PGeometry/PGeometry.cpp',
+      'PGeometry/PGeometry.h',
+      'PGeometry/PGeometry_Export.h',
+      'PGeometry/PGeometryOperator.cpp',
+      'PGeometry/PGeometryOperator.h',
+      'PGeometry/PGeometryStoreData.cpp',
+      'PGeometry/PGeometryStoreData.h',
+      'PGeometry/PGeometryStoreTriangleStrip.cpp',
+      'PGeometry/PGeometryStoreTriangleStrip.h',
+      'PGeometry/PGeometryStoreTriangle.cpp',
+      'PGeometry/PGeometryStoreTriangle.h',
+      'PGeometry/PGeometryStoreVertexIndex.cpp',
+      'PGeometry/PGeometryStoreVertexIndex.h',
+      'PGeometry/PGeometryTrait.cpp',
+      'PGeometry/PGeometryTrait.h',
+      'PGeometry/PGeometryTypeSignature.cpp',
+      'PGeometry/PGeometryTypeSignature.h',
+      'PGeometry/PGeometryUtility.cpp',
+      'PGeometry/PGeometryUtility.h',
+      'PGeometry/PGeometryVertex.cpp',
+      'PGeometry/PGeometryVertex.h',
+      ],
+    },
+  'PImage' : {
+    '' : [
+      'PImage/PImage.cpp',
+      'PImage/PImage.h',
+      'PImage/PImage_Export.h',
+      'PImage/PImageBitmap.cpp',
+      'PImage/PImageBitmap.h',
+      'PImage/PImageConvertor.cpp',
+      'PImage/PImageConvertor.h',
+      'PImage/PImageTga.cpp',
+      'PImage/PImageTga.h',
+      'PImage/PImageUtility.cpp',
+      'PImage/PImageUtility.h',
+      ],
+    },
+  'PInterface' : {
+    '' : [
+      'PInterface/PInterface_Export.h',
+      'PInterface/PInterfaceAnimation.cpp',
+      'PInterface/PInterfaceAnimation.h',
+      'PInterface/PInterfaceAnimationVariant.cpp',
+      'PInterface/PInterfaceAnimationVariant.h',
+      'PInterface/PInterfaceAnimationVisitor.cpp',
+      'PInterface/PInterfaceAnimationVisitor.h',
+      'PInterface/PInterfaceAnimationVisitorKeys.cpp',
+      'PInterface/PInterfaceAnimationVisitorKeys.h',
+      'PInterface/PInterfaceProgress.cpp',
+      'PInterface/PInterfaceProgress.h',
+      ],
+    },
+  'PIntersection' : {
+    '' : [
+      'PIntersection/PIntersection_Export.h',
+      'PIntersection/PIntersectionUtility.cpp',
+      'PIntersection/PIntersectionUtility.h',
+      ],
+    },
+  'PLight' : {
+    '' : [
+      'PLight/PLight.cpp',
+      'PLight/PLight.h',
+      'PLight/PLight_Export.h',
+      'PLight/PLightOperator.cpp',
+      'PLight/PLightOperator.h',
+      'PLight/PLightTrait.cpp',
+      'PLight/PLightTrait.h',
+      ],
+    },
+  'PLine' : {
+    '' : [
+      'PLine/PLine.cpp',
+      'PLine/PLine.h',
+      'PLine/PLine_Export.h',
+      'PLine/PLineMathUtility.cpp',
+      'PLine/PLineMathUtility.h',
+      'PLine/PLineUtility.cpp',
+      'PLine/PLineUtility.h',
+      'PLine/PLineSegment.cpp',
+      'PLine/PLineSegment.h',
+      'PLine/PLineSegmentMathUtility.cpp',
+      'PLine/PLineSegmentMathUtility.h',
+      'PLine/PLineSegmentUtility.cpp',
+      'PLine/PLineSegmentUtility.h',
+      ],
+    },
+  'PMaterial' : {
+    'Private' : [
+      'PMaterial/PMaterialImplementation.cpp',
+      'PMaterial/PMaterialImplementation.h',
+      ],
+    '' : [
+      'PMaterial/PMaterial.cpp',
+      'PMaterial/PMaterial.h',
+      'PMaterial/PMaterial_Export.h',
+      ],
+    },
+  'PMesh' : {
+    'Private' : [
+      'PMesh/PMeshImplementation.cpp',
+      'PMesh/PMeshImplementation.h',
+      'PMesh/PMeshTriangle.cpp',
+      'PMesh/PMeshTriangle.h',
+      ],
+    '' : [
+      'PMesh/PMesh.cpp',
+      'PMesh/PMesh.h',
+      'PMesh/PMesh_Export.h',
+      'PMesh/PMeshUtility.cpp',
+      'PMesh/PMeshUtility.h',
+      ],
+    },
+  'PPlane' : {
+    '' : [
+      'PPlane/PPlane.cpp',
+      'PPlane/PPlane.h',
+      'PPlane/PPlane_Export.h',
+      'PPlane/PPlaneMathUtility.cpp',
+      'PPlane/PPlaneMathUtility.h',
+      'PPlane/PPlaneTrait.cpp',
+      'PPlane/PPlaneTrait.h',
+      'PPlane/PPlaneUtility.cpp',
+      'PPlane/PPlaneUtility.h',
+      ],
+    },
+  'PPointCloud' : {
+    '' : [
+      'PPointCloud/PPointCloud.cpp',
+      'PPointCloud/PPointCloud.h',
+      'PPointCloud/PPointCloud_Export.h',
+      ],
+    },    
+  'PSphere' : {
+    'Private' : [
+      'PSphere/PSphereListReduce.cpp',
+      'PSphere/PSphereListReduce.h',
+      ],
+    '' : [
+      'PSphere/PSphere.cpp',
+      'PSphere/PSphere.h',
+      'PSphere/PSphere_Export.h',
+      'PSphere/PSphereMathUtility.cpp',
+      'PSphere/PSphereMathUtility.h',
+      'PSphere/PSphereUtility.cpp',
+      'PSphere/PSphereUtility.h',
+      'PSphere/PSphereTrait.cpp',
+      'PSphere/PSphereTrait.h',
+      ],
+    },
+  'PTriangle' : {
+    '' : [
+      'PTriangle/PTriangle.cpp',
+      'PTriangle/PTriangle.h',
+      'PTriangle/PTriangle_Export.h',
+      'PTriangle/PTriangleMathUtility.cpp',
+      'PTriangle/PTriangleMathUtility.h',
+      'PTriangle/PTriangleUtility.cpp',
+      'PTriangle/PTriangleUtility.h',
+      ],
+    },
+  'PUnitVector' : {
+    '' : [
+      'PUnitVector/PUnitVector.cpp',
+      'PUnitVector/PUnitVector.h',
+      'PUnitVector/PUnitVector_Export.h',
+      'PUnitVector/PUnitVectorMathUtility.cpp',
+      'PUnitVector/PUnitVectorMathUtility.h',
+      'PUnitVector/PUnitVectorTrait.cpp',
+      'PUnitVector/PUnitVectorTrait.h',
+      'PUnitVector/PUnitVectorUtility.cpp',
+      'PUnitVector/PUnitVectorUtility.h',
+      ],
+    },
+  '' : [
+    'PridePreCompileHeader.h',
+    #'PridePreCompileHeader.cpp', DON'T ADD PCH YET
+    'Pride_Export.h',
+    'SConscript'
+    ],
+  }
+  
+######################################
+#adjust our env
+
+#env.Append( CCFLAGS = '/EHsc' )
+#env.AppendUnique( TARGET_DEFINES = [ ( "_HAS_EXCEPTIONS", "1" ) ] )
+
+if env.get( 'TARGET_DEBUG', False ):
+  env[ 'PDB' ] = translationUnitName + '.pdb'
+
+######################################
+#build exe alias( 'build' )
+
+build = env.BuildMsvs(
+  target = env.File( '${BUILD_DIR}/Code/Lib/' + translationUnitName + '.lib' ),
+  source = [ 
+    translationUnitSolutionName,
+    ] + 
+    GetArrayFromDictionary( sourceFileDict ),  
+  sourceFile = env.File( os.path.join( '#Code', 'Pride', translationUnitSolutionName ) ).get_abspath(),
+  projectName = translationUnitName,
+  )  
+env.Alias( 'build', build )
+
+######################################
+#build project
+
+if 'CreateMsvsProject' in env['TOOLS']:
+  project = env.CreateMsvsProject(
+    target = translationUnitProjectName,
+    source = [
+      env.File( '${CODE_DIR}/Pride/Sconscript' ), #list script as project src so project updates on script changes
+    ], #must specify source else you get extention mangled targets as source
+    sourceProjectFiles = sourceFileDict,
+    additionalIncludeDirectories = [
+      "..",
+      ],
+    projectType = 'Win32Proj',
+    buildBase = os.path.join( "..", "..", env.Dir( '.' ).path ),
+    outputDir = os.path.join( "..", "..", env.Dir( '${BUILD_DIR}/Code/Lib' ).path ),
+    buildLib = True,
+    warnAsError = True,
+    multiThread = True,
+    precompileFile = "PridePreCompileHeader.cpp",
+    precompileThrough = "Pride/PridePreCompileHeader.h",
+    #warningLevel = 3,
+    )
+  env.Clean( project, env.File( translationUnitProjectName ).srcnode() )
+  env.Default( project )
+  
+  
+######################################
+#build solution (default)
+
+if 'CreateMsvsSolution' in env['TOOLS']:
+  solution = env.CreateMsvsSolution(
+    target = translationUnitSolutionName,
+    source = translationUnitProjectName,
+    sourceSolutionDependency = { 
+      translationUnitProjectName : [
+        ],
+      "..\\Hubris\\Hubris.vcproj" : [
+        ],
+      },
+    solutionItemArray = [
+      "SConscript",
+      "..\\..\\SolutionItems\\code_standard.txt",   
+      "..\\..\\SolutionItems\\todo.txt",   
+      "..\\..\\SolutionItems\\plan.txt",   
+      ],
+    )
+  env.Clean( solution, env.File( translationUnitSolutionName ).srcnode() )  
+  env.Default( solution )
+    
+  
+#end file
+  

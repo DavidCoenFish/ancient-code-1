@@ -1,0 +1,110 @@
+/*
+GLSL has some built-in attributes in a vertex shader: 
+gl_Vertex				4D vector representing the vertex position
+gl_Normal				3D vector representing the vertex normal
+gl_Color				4D vector representing the vertex color
+gl_MultiTexCoordX			4D vector representing the texture coordinate of texture unit X
+
+gl_ModelViewMatrix			4x4 Matrix representing the model-view matrix.
+gl_ModelViewProjectionMatrix		4x4 Matrix representing the model-view-projection matrix.
+gl_NormalMatrix				3x3 Matrix representing the inverse transpose model-view matrix.
+					This matrix is used for normal transformation.
+
+uniform gl_LightSourceParameters gl_LightSource[gl_MaxLights];
+	vec4 ambient;
+	vec4 diffuse;
+	vec4 specular;
+	vec4 position;
+	vec4 halfVector;
+	vec3 spotDirection;
+	float spotExponent;
+	float spotCutoff;
+	float spotCosCutoff;
+	float constantAttenuation;
+	float linearAttenuation;
+	float quadraticAttenuation;
+*/
+
+uniform int g_useLights;
+uniform int g_useBarrelDistortion;
+
+vec3 gatherLight( 
+	in vec3 in_worldSpaceVertex,
+	in vec3 in_worldSpaceNormal,
+	in int in_lightIndex 
+	)
+{
+	vec3 gatheredColour;
+
+	const float lightFalloffExponent = gl_LightSource[ in_lightIndex ].constantAttenuation;	
+	const float lightRadius = gl_LightSource[ in_lightIndex ].quadraticAttenuation;	
+	const vec3 worldSpacelightPosition = gl_LightSource[ in_lightIndex ].ambient.rgb;
+	float lightAmount = 0.0;
+		
+	//point mode
+	//if( 1.0 == gl_LightSource[ in_lightIndex ].ambient.a )
+	//{
+		vec3 lightToVector = worldSpacelightPosition - in_worldSpaceVertex;
+		const float distance = min( lightRadius, length( worldSpacelightPosition.xyz - in_worldSpaceVertex.xyz ) );
+		lightToVector /= distance;
+		const float normalLightDot = max( 0.0, dot( lightToVector, in_worldSpaceNormal ) );
+		lightAmount = normalLightDot * pow( ( 1.0 - ( distance / lightRadius ) ), lightFalloffExponent );
+	//}
+
+	gatheredColour = gl_LightSource[ in_lightIndex ].diffuse.rgb * lightAmount;
+	
+	return( gatheredColour );
+}
+
+void main()
+{
+	//having problem with undefined var...
+	gl_TexCoord[ 0 ] = gl_MultiTexCoord0;
+
+	const vec4 worldSpaceVertex = gl_ModelViewMatrix * gl_Vertex;
+	const vec3 worldSpaceNormal = gl_NormalMatrix * gl_Normal;
+	//const vec4 vertexPosition = ftransform();
+	const vec4 vertexPosition = gl_ProjectionMatrix * worldSpaceVertex;
+
+	vec3 gatheredLightColour;
+	if( 0 != g_useLights )
+	{
+		gatheredLightColour = gl_LightModel.ambient.rgb * gl_FrontMaterial.ambient.rgb;
+
+		//for( int lightIndex = 0; lightIndex < gl_MaxLights; ++lightIndex )
+		for( int lightIndex = 0; lightIndex < 5; ++lightIndex )
+		{
+			gatheredLightColour += gatherLight( 
+			    worldSpaceVertex.xyz,
+				worldSpaceNormal,
+				lightIndex
+				);
+		}
+	}
+	else
+	{
+		gatheredLightColour = gl_FrontMaterial.diffuse.rgb;
+	}	
+	
+	gl_FrontColor.rgb = ( gatheredLightColour * gl_Color.rgb ) + gl_FrontMaterial.emission.rgb;
+	gl_FrontColor.a = ( gl_Color.a * gl_FrontMaterial.diffuse.a );
+	gl_BackColor = gl_FrontColor;
+	
+	vec4 barrelPosition = vertexPosition;
+	
+	if( 0 != g_useBarrelDistortion )
+	{
+		const float tempMul = 1.0 / ( barrelPosition.z + 2.0 );
+		const float tempX = barrelPosition.x * tempMul;
+		const float tempY = barrelPosition.y * tempMul;
+
+		const float tempDist = min( sqrt( ( ( tempX * tempX ) + ( tempY * tempY ) ) + 2.0 ), 2.0 );
+		const float tempScale = 2.0 / tempDist;
+		barrelPosition.x *= tempScale;
+		barrelPosition.y *= tempScale;
+	}
+	
+	gl_Position = barrelPosition;
+
+	return;
+}

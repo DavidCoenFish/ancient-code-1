@@ -1,0 +1,292 @@
+#file: Coretech/Code/Envy/SConscript
+
+
+###########################################
+# import
+
+import os
+
+Import( "env" )
+env = env.Clone()
+from extras.extras_dictionary import GetArrayFromDictionary
+
+
+###########################################
+# invoke children sconscripts
+
+# call children SConscript files
+env.SConscript(
+  [ 'ETestbed/SConscript',
+    ],
+  exports = {
+    "env" : env
+    },
+  )
+  
+
+###########################################
+# local varaibles
+
+translationUnitName = 'Envy'
+translationUnitProjectName = translationUnitName + env['MSVSPROJECTSUFFIX']
+translationUnitSolutionName = translationUnitName + env['MSVSSOLUTIONSUFFIX']
+translationUnitTargetName = translationUnitName + '.lib'
+
+#src files  
+sourceFileDict = {
+  'ECommandLine' : {
+    '' : [
+      'ECommandLine/ECommandLine_Export.h',
+      'ECommandLine/ECommandLine.cpp',
+      'ECommandLine/ECommandLine.h',
+      'ECommandLine/ECommandLineParam.cpp',
+      'ECommandLine/ECommandLineParam.h',
+      'ECommandLine/ECommandLineUtility.cpp',
+      'ECommandLine/ECommandLineUtility.h',
+      ],
+    },
+  'EDataStore' : {
+    'Private' : [
+      'EDataStore/EDataStoreUtilityLoadVisitor.cpp',
+      'EDataStore/EDataStoreUtilityLoadVisitor.h',
+      ],
+    '' : [
+      'EDataStore/EDataStore_Export.h',
+      'EDataStore/EDataStore.cpp',
+      'EDataStore/EDataStore.h',
+      'EDataStore/EDataStoreTrait.cpp',
+      'EDataStore/EDataStoreTrait.h',
+      'EDataStore/EDataStoreUtility.cpp',
+      'EDataStore/EDataStoreUtility.h',
+      ],
+    },
+  'ERecursiveDataStore' : {
+    'Private' : [
+      'ERecursiveDataStore/ERecursiveDataStoreUtilityLoadVisitor.cpp',
+      'ERecursiveDataStore/ERecursiveDataStoreUtilityLoadVisitor.h',
+      'ERecursiveDataStore/ERecursiveDataStoreUtilityLoadVisitorData.cpp',
+      'ERecursiveDataStore/ERecursiveDataStoreUtilityLoadVisitorData.h',
+      ],
+    '' : [
+      'ERecursiveDataStore/ERecursiveDataStore_Export.h',
+      'ERecursiveDataStore/ERecursiveDataStore.cpp',
+      'ERecursiveDataStore/ERecursiveDataStore.h',
+      'ERecursiveDataStore/ERecursiveDataStoreTrait.cpp',
+      'ERecursiveDataStore/ERecursiveDataStoreTrait.h',
+      'ERecursiveDataStore/ERecursiveDataStoreUtility.cpp',
+      'ERecursiveDataStore/ERecursiveDataStoreUtility.h',
+      ],
+    },
+  'EJana' : {
+    'Private' : [
+      'EJana/EJanaManagerImplementation.h',
+      'EJana/EJanaManagerImplementation.cpp',
+      ],
+    '' : [
+      'EJana/EJana_Export.h',
+      'EJana/EJana.h',
+      'EJana/EJana.cpp',
+      'EJana/EJanaManager.h',
+      'EJana/EJanaManager.cpp',
+      'EJana/EJanaUtility.h',
+      'EJana/EJanaUtility.cpp',
+      ],
+    },
+  'EResourceIdManager' : {
+    'Private' : [
+      'EResourceIdManager/EResourceIdManagerImplementation.h',
+      'EResourceIdManager/EResourceIdManagerImplementation.cpp',
+      ],
+    '' : [
+      'EResourceIdManager/EResourceIdManager_Export.h',
+      'EResourceIdManager/EResourceIdManager.h',
+      'EResourceIdManager/EResourceIdManager.cpp',
+      ],
+    },
+  'EMemento' : {
+    'Private' : [
+      'EMemento/EMementoAssignPointer.cpp',
+      'EMemento/EMementoAssignPointer.h',
+      'EMemento/EMementoCollectPointer.cpp',
+      'EMemento/EMementoCollectPointer.h',
+      'EMemento/EMementoDataStore.h',
+      'EMemento/EMementoDataStore.cpp',
+      'EMemento/EMementoImplementation.h',
+      'EMemento/EMementoImplementation.cpp',
+      ],
+    '' : [
+      'EMemento/EMemento_Export.h',
+      'EMemento/EMemento.h',
+      'EMemento/EMemento.cpp',
+      'EMemento/EMementoAssign.h',
+      'EMemento/EMementoAssign.cpp',
+      'EMemento/EMementoCollect.h',
+      'EMemento/EMementoCollect.cpp',
+      'EMemento/EMementoFactory.cpp',
+      'EMemento/EMementoFactory.h',
+      'EMemento/EMementoTrait.h',
+      'EMemento/EMementoTrait.cpp',
+      'EMemento/EMementoUtility.h',
+      'EMemento/EMementoUtility.cpp',
+      ],
+    },    
+  'EMementoEdit' : {
+    '' : [
+      'EMementoEdit/EMementoEdit_Export.h',
+      'EMementoEdit/EMementoEdit.h',
+      'EMementoEdit/EMementoEdit.cpp',
+      'EMementoEdit/EMementoEditAddress.h',
+      'EMementoEdit/EMementoEditAddress.cpp',
+      'EMementoEdit/EMementoEditCollect.h',
+      'EMementoEdit/EMementoEditCollect.cpp',
+      'EMementoEdit/EMementoEditTrait.h',
+      'EMementoEdit/EMementoEditTrait.cpp',
+      'EMementoEdit/EMementoEditUtility.h',
+      'EMementoEdit/EMementoEditUtility.cpp',
+      ],
+    },    
+  'EStateMachine' : {
+    'Private' : [
+      'EStateMachine/EStateMachineChannelImplementation.cpp',
+      'EStateMachine/EStateMachineChannelImplementation.h',
+      'EStateMachine/EStateMachineTemplate.cpp',
+      'EStateMachine/EStateMachineTemplate.h',
+      ],
+    '' : [
+      'EStateMachine/EStateMachine.cpp',
+      'EStateMachine/EStateMachine.h',
+      'EStateMachine/EStateMachineChannel.cpp',
+      'EStateMachine/EStateMachineChannel.h',
+      'EStateMachine/EStateMachineDataExchange.cpp',
+      'EStateMachine/EStateMachineDataExchange.h',
+      'EStateMachine/EStateMachineDataExchangeTrait.cpp',
+      'EStateMachine/EStateMachineDataExchangeTrait.h',
+      'EStateMachine/EStateMachineStateBase.cpp',
+      'EStateMachine/EStateMachineStateBase.h',
+      'EStateMachine/EStateMachineStateBaseTrait.cpp',
+      'EStateMachine/EStateMachineStateBaseTrait.h',
+      'EStateMachine/EStateMachineStateChannelBase.cpp',
+      'EStateMachine/EStateMachineStateChannelBase.h',
+      'EStateMachine/EStateMachineStateChannelBaseTrait.cpp',
+      'EStateMachine/EStateMachineStateChannelBaseTrait.h',
+      'EStateMachine/EStateMachine_Export.h',
+      ],
+    },
+  'EStateMachineSimple' : {
+    '' : [
+      'EStateMachineSimple/EStateMachineSimple.cpp',
+      'EStateMachineSimple/EStateMachineSimple.h',
+      'EStateMachineSimple/EStateMachineSimpleTrait.cpp',
+      'EStateMachineSimple/EStateMachineSimpleTrait.h',
+      'EStateMachineSimple/EStateMachineSimple_Export.h',
+      ],
+    },
+  'EStringTable' : {
+    'Private' : [
+      'EStringTable/EStringTableImplementation.cpp',
+      'EStringTable/EStringTableImplementation.h',
+      ],
+    '' : [
+      'EStringTable/EStringTable.cpp',
+      'EStringTable/EStringTable.h',
+      'EStringTable/EStringTable_Export.h',
+      'EStringTable/EStringTableTrait.cpp',
+      'EStringTable/EStringTableTrait.h',
+      ],
+    },
+  'ETanya' : {
+    'Private' : [
+      'ETanya/ETanyaVariant.h',
+      'ETanya/ETanyaVariant.cpp',
+      ],
+    '' : [
+      'ETanya/ETanya_Export.h',
+      'ETanya/ETanya.cpp',
+      'ETanya/ETanya.h',
+      'ETanya/ETanyaUtility.h',
+      'ETanya/ETanyaUtility.cpp',
+      ],
+    },
+  '' : [
+    'EnvyPreCompileHeader.h',
+    #'EnvyPreCompileHeader.cpp', DON'T ADD PCH YET
+    'Envy_Export.h',    
+    'SConscript'
+    ],
+  }
+
+  
+
+######################################
+#adjust our env
+
+if env.get( 'TARGET_DEBUG', False ):
+  env[ 'PDB' ] = translationUnitName + '.pdb'
+
+######################################
+#build exe alias( 'build' )
+
+build = env.BuildMsvs(
+  target = env.File( '${BUILD_DIR}/Code/Lib/' + translationUnitName + '.lib' ),
+  source = [ 
+    translationUnitSolutionName,
+    ] + 
+    GetArrayFromDictionary( sourceFileDict ),  
+  sourceFile = env.File( os.path.join( '#Code', 'Envy', translationUnitSolutionName ) ).get_abspath(),
+  projectName = translationUnitName,
+  )  
+env.Alias( 'build', build )
+
+######################################
+#build project
+
+if 'CreateMsvsProject' in env['TOOLS']:
+  project = env.CreateMsvsProject(
+    target = translationUnitProjectName,
+    source = [
+      env.File( '${CODE_DIR}/Envy/Sconscript' ), #list script as project src so project updates on script changes
+    ], #must specify source else you get extention mangled targets as source
+    sourceProjectFiles = sourceFileDict,
+    additionalIncludeDirectories = [ 
+      "..",
+      ],
+    projectType = 'Win32Proj',
+    buildBase = os.path.join( "..", "..", env.Dir( '.' ).path ),
+    outputDir = os.path.join( "..", "..", env.Dir( '${BUILD_DIR}/Code/Lib' ).path ),
+    buildLib = True,
+    warnAsError = True,
+    multiThread = True,
+    precompileFile = "EnvyPreCompileHeader.cpp",
+    precompileThrough = "Envy/EnvyPreCompileHeader.h",
+    #warningLevel = 3,
+    )
+  env.Clean( project, env.File( translationUnitProjectName ).srcnode() )
+  env.Default( project )
+  
+  
+######################################
+#build solution (default)
+
+if 'CreateMsvsSolution' in env['TOOLS']:
+  solution = env.CreateMsvsSolution(
+    target = translationUnitSolutionName,
+    source = translationUnitProjectName,
+    sourceSolutionDependency = { 
+      translationUnitProjectName : [
+        ],
+      '..\\Hubris\\Hubris.vcproj' : [
+        ],
+      },
+    solutionItemArray = [
+      "SConscript",
+      "..\\..\\SolutionItems\\code_standard.txt",   
+      "..\\..\\SolutionItems\\todo.txt",   
+      "..\\..\\SolutionItems\\plan.txt",     
+      ],
+    )
+  env.Clean( solution, env.File( translationUnitSolutionName ).srcnode() )  
+  env.Default( solution )
+    
+  
+#end file
+  

@@ -1,0 +1,189 @@
+#file: Coretech/Code/Greed/SConscript
+
+
+###########################################
+# import
+
+import os
+
+Import( "env" )
+env = env.Clone()
+from extras.extras_dictionary import GetArrayFromDictionary
+
+###########################################
+# invoke children sconscripts
+
+# call children SConscript files
+env.SConscript(
+  [ 
+    'GTestbed/SConscript',
+    ],
+  exports = {
+    "env" : env
+    },
+  )
+  
+
+###########################################
+# local varaibles
+
+translationUnitName = 'Greed'
+translationUnitProjectName = translationUnitName + env['MSVSPROJECTSUFFIX']
+translationUnitSolutionName = translationUnitName + env['MSVSSOLUTIONSUFFIX']
+translationUnitTargetName = translationUnitName + '.lib'
+
+#src files  
+sourceFileDict = {  
+  'GComponent' : {
+    'Private' : [
+      'GComponent/GComponentAnimationTargetData.cpp',
+      'GComponent/GComponentAnimationTargetData.h',
+      'GComponent/GComponentAnimationTargetDataValue.cpp',
+      'GComponent/GComponentAnimationTargetDataValue.h',
+      ],
+    '' : [
+      'GComponent/GComponent_Export.h',
+      'GComponent/GComponentAnimation.cpp',
+      'GComponent/GComponentAnimation.h',
+      'GComponent/GComponentAnimationVisitor.cpp',
+      'GComponent/GComponentAnimationVisitor.h',
+      'GComponent/GComponentDynamicMovementSimple.cpp',
+      'GComponent/GComponentDynamicMovementSimple.h',
+      'GComponent/GComponentPlayerInput.cpp',
+      'GComponent/GComponentPlayerInput.h',
+      'GComponent/GComponentTilt.cpp',
+      'GComponent/GComponentTilt.h',
+      'GComponent/GComponentTranslation.cpp',
+      'GComponent/GComponentTranslation.h',
+      'GComponent/GComponentRotation.cpp',
+      'GComponent/GComponentRotation.h',
+      ],
+    }, 
+  'GParticleEmittor' : {
+    'Private' : [
+      'GParticleEmittor/GParticleEmittorAnimationVisitor.cpp',
+      'GParticleEmittor/GParticleEmittorAnimationVisitor.h',
+      'GParticleEmittor/GParticleEmittorData.cpp',
+      'GParticleEmittor/GParticleEmittorData.h',
+      'GParticleEmittor/GParticleEmittorState.cpp',
+      'GParticleEmittor/GParticleEmittorState.h',
+      'GParticleEmittor/GParticleEmittorStateDataExchange.cpp',
+      'GParticleEmittor/GParticleEmittorStateDataExchange.h',
+      'GParticleEmittor/GParticleEmittorType.cpp',
+      'GParticleEmittor/GParticleEmittorType.h',
+      'GParticleEmittor/GParticleEmittorTrait.cpp',
+      'GParticleEmittor/GParticleEmittorTrait.h',
+      ],
+    '' : [
+      'GParticleEmittor/GParticleEmittor_Export.h',
+      'GParticleEmittor/GParticleEmittor.cpp',
+      'GParticleEmittor/GParticleEmittor.h',
+      ],
+    }, 
+  'GPlayerCharacter' : {
+    'Private' : [
+      'GPlayerCharacter/GPlayerCharacterTrait.cpp',
+      'GPlayerCharacter/GPlayerCharacterTrait.h',
+      ],
+    '' : [
+      'GPlayerCharacter/GPlayerCharacter_Export.h',
+      'GPlayerCharacter/GPlayerCharacter.cpp',
+      'GPlayerCharacter/GPlayerCharacter.h',
+      ],
+    },    
+  'GUtility' : {
+    '' : [
+      'GUtility/GUtility_Export.h',
+      'GUtility/GUtility.cpp',
+      'GUtility/GUtility.h',
+      ],
+    }, 
+  '' : [
+    'Greed_Export.h',
+    'GreedPreCompileHeader.h',
+    #'GreedPreCompileHeader.cpp', DON'T ADD PCH YET
+    'SConscript'
+    ],
+  }
+  
+######################################
+#adjust our env
+
+if env.get( 'TARGET_DEBUG', False ):
+  env[ 'PDB' ] = translationUnitName + '.pdb'
+
+######################################
+#build exe alias( 'build' )
+
+build = env.BuildMsvs(
+  target = env.File( '${BUILD_DIR}/Code/Lib/' + translationUnitName + '.lib' ),
+  source = [ 
+    translationUnitSolutionName,
+    ] + 
+    GetArrayFromDictionary( sourceFileDict ),  
+  sourceFile = env.File( os.path.join( '#Code', 'Greed', translationUnitSolutionName ) ).get_abspath(),
+  projectName = translationUnitName,
+  )  
+env.Alias( 'build', build )
+
+######################################
+#build project (default)
+
+if 'CreateMsvsProject' in env['TOOLS']:
+  project = env.CreateMsvsProject(
+    target = translationUnitProjectName,
+    source = [
+      env.File( '${CODE_DIR}/Greed/Sconscript' ), #list script as project src so project updates on script changes
+    ], #must specify source else you get extention mangled targets as source
+    sourceProjectFiles = sourceFileDict,
+    additionalIncludeDirectories = [
+      "..",
+      ],
+    projectType = 'Win32Proj',
+    buildBase = os.path.join( "..", "..", env.Dir( '.' ).path ),
+    outputDir = os.path.join( "..", "..", env.Dir( '${BUILD_DIR}/Code/Lib' ).path ),
+    buildLib = True,
+    warnAsError = True,
+    multiThread = True,
+    precompileFile = "GreedPreCompileHeader.cpp",
+    precompileThrough = "Greed/GreedPreCompileHeader.h",
+    #warningLevel = 3,
+    )
+  env.Clean( project, env.File( translationUnitProjectName ).srcnode() )
+  env.Default( project )
+  
+  
+######################################
+#build solution (default)
+
+if 'CreateMsvsSolution' in env['TOOLS']:
+  solution = env.CreateMsvsSolution(
+    target = translationUnitSolutionName,
+    source = translationUnitProjectName,
+    sourceSolutionDependency = { 
+      translationUnitProjectName : [
+        ],
+      "..\\Hubris\\Hubris.vcproj" : [
+        ],
+      "..\\Pride\\Pride.vcproj" : [
+        ],
+      "..\\Envy\\Envy.vcproj" : [
+        ],
+      "..\\Vanity\\Vanity.vcproj" : [
+        ],
+      "..\\Lust\\Lust.vcproj" : [
+        ],
+      },
+    solutionItemArray = [
+      "SConscript",
+      "..\\..\\SolutionItems\\code_standard.txt",   
+      "..\\..\\SolutionItems\\todo.txt",   
+      "..\\..\\SolutionItems\\plan.txt",   
+      ],
+    )
+  env.Clean( solution, env.File( translationUnitSolutionName ).srcnode() )  
+  env.Default( solution )
+    
+  
+#end file
+  
